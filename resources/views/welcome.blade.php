@@ -78,11 +78,11 @@
                             <li class="social"><a href="#contact-section" class="nav-link"><span
                                             class="icon-linkedin"></span></a></li>
                             @auth
-                                <button class="btn btn-primary text-black" type="button">{{ trans('app.admin') }}
-                                </button>
+                                <a class="btn btn-primary text-black" type="button" href="/admin">{{ trans('app.admin') }}
+                                </a>
                             @else
-                                <button class="btn btn-primary text-black" type="button" >{{ trans('app.login') }}
-                                </button>
+                                <a class="btn btn-primary text-black"  href="/admin/login" type="button" >{{ trans('app.login') }}
+                                </a>
                             @endauth
                         </ul>
                     </nav>
@@ -246,29 +246,29 @@
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="0">
                     <div class="feature-v2">
                         <span class=" icon-search2"></span>
-                        <h3>Easy to find</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem saepe aut, vel. Nemo.</p>
+                        <h3>{{ trans('app.easytofind') }}</h3>
+                        <p>{{ trans('app.easytofind_desc') }}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="100">
                     <div class="feature-v2">
                         <span class=" icon-security"></span>
-                        <h3>Good Security</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem saepe aut, vel. Nemo.</p>
+                        <h3>{{ trans('app.aesthetic') }}</h3>
+                        <p>{{ trans('app.aesthetic_desc') }}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="200">
                     <div class="feature-v2">
                         <span class="icon-visibility"></span>
-                        <h3>Aesthetic</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem saepe aut, vel. Nemo.</p>
+                        <h3>{{ trans('app.goodsecurity') }}</h3>
+                        <p>{{ trans('app.goodsecurity_desc') }}</p>
                     </div>
                 </div>
                 <div class="col-6 col-sm-6 col-md-4 col-lg-3 mb-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="feature-v2">
                         <span class="icon-settings"></span>
-                        <h3>Dashboard</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem saepe aut, vel. Nemo.</p>
+                        <h3>{{ trans('app.dashboard') }}</h3>
+                        <p>{{ trans('app.dashboard_desc') }}</p>
                     </div>
                 </div>
             </div>
@@ -357,8 +357,8 @@
         <div class="container">
             <div class="row justify-content-center text-center">
                 <div class="col-7 text-center mb-5">
-                    <span class="subtitle-1">Pricing</span>
-                    <h2 class="section-title-1 font-weight-bold">Pricing for All</h2>
+                    <span class="subtitle-1">{{ trans('app.pricing') }}</span>
+                    <h2 class="section-title-1 font-weight-bold">{{ trans('app.pricing_desc') }}</h2>
                 </div>
             </div>
             <div class="row">
@@ -453,9 +453,8 @@
             <div class="row justify-content-center">
                 <div class="col-md-7 text-center">
                     <span class="sub-title">Blog</span>
-                    <h2 class="font-weight-bold text-black">News &amp; Updates</h2>
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, explicabo,
-                        quasi. Magni deserunt sunt labore.</p>
+                    <h2 class="font-weight-bold text-black">{{ trans('app.news_updates') }}</h2>
+                    <p class="mb-5">{{ trans('app.news_updates_desc') }}</p>
                 </div>
             </div>
 
@@ -510,10 +509,8 @@
 
             <div class="row justify-content-center">
                 <div class="col-md-7 text-center">
-                    <span class="sub-title">Contact</span>
-                    <h2 class="font-weight-bold text-black">Get In Touch</h2>
-                    <p class="mb-5">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi, explicabo,
-                        quasi. Magni deserunt sunt labore.</p>
+                    <h2 class="font-weight-bold text-black">{{ trans('app.where') }}</h2>
+                    <p class="mb-5">{{ trans('app.where_us') }}</p>
                 </div>
             </div>
 
@@ -545,7 +542,7 @@
 
                     <form action="#" class="p-5 bg-white">
 
-                        <h2 class="h4 text-black mb-5">Contact Form</h2>
+                        <h2 class="h4 text-black mb-5">{{ trans('app.contacts') }}</h2>
 
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">
@@ -600,7 +597,7 @@
         <div class="container">
             <h2 class="text-black mb-3">Join over 1,700 companies that trust us.</h2>
             <p class="mb-5">Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-            <p><a href="#" class="btn btn-primary">Try it for free</a></p>
+            <p><a href="#" class="btn btn-primary">{{ trans('app.request_demo') }}</a></p>
         </div>
     </div>
 
