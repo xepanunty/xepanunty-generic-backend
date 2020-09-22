@@ -15,7 +15,7 @@
                             <label class="control-label" for="{{ $username }}">{{ config('backpack.base.authentication_column_name') }}</label>
 
                             <div>
-                                <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) ?? 'admin@example.com' }}" id="{{ $username }}">
+                                <input type="text" class="form-control{{ $errors->has($username) ? ' is-invalid' : '' }}" name="{{ $username }}" value="{{ old($username) ?? '' }}" id="{{ $username }}">
 
                                 @if ($errors->has($username))
                                     <span class="invalid-feedback">
@@ -29,7 +29,7 @@
                             <label class="control-label" for="password">{{ trans('backpack::base.password') }}</label>
 
                             <div>
-                                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" value="{{ old('username')?'':'admin' }}">
+                                <input type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" id="password" value="{{ old('username')?'':'' }}">
 
                                 @if ($errors->has('password'))
                                     <span class="invalid-feedback">

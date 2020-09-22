@@ -11,11 +11,14 @@
 |
 */
 
+//MARKETING WEB-SITE
 Route::get('/', [\App\Http\Controllers\Marketing\MarketingController::class, 'index']);
 
+// OVERRIDE ACTIONS FOR MY BUSSINESS LOGIC
+Route::get('register/{package?}', 'Auth\RegisterControllerOverride@showRegistrationForm')->name('backpack.auth.register');
+Route::post('register/{package?}', 'Auth\RegisterControllerOverride@register');
 
-
-if (app('env') !== 'production') {
+if (app('env') == 'production') {
 
     Route::get("/clean", function() {
         \Illuminate\Support\Facades\Artisan::call('cache:clear');

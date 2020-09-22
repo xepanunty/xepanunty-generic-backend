@@ -81,7 +81,7 @@
                                 <a class="btn btn-primary text-black" type="button" href="admin/dashboard">{{ trans('app.admin') }}
                                 </a>
                             @else
-                                <a class="btn btn-primary text-black"  href="admin/dashboard" type="button" >{{ trans('app.login') }}
+                                <a class="btn btn-primary"  href="admin/dashboard" type="button" >{{ trans('app.login') }}
                                 </a>
                             @endauth
                         </ul>
@@ -100,7 +100,7 @@
                     <div class="mb-5">
                         <h1 class="hero-heading">{{ trans('app.productivity') }}</h1>
                         <p>{{ trans('app.marketing') }}</p>
-                        <a href="admin/dashboard" class="btn btn-primary">{{ trans('app.free') }}</a>
+                        <a href="#pricing-section" class="btn btn-primary">{{ trans('app.free') }}</a>
                     </div>
                     <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout_laptop.png') }}" alt="image" class="img-fluid">
                 </div>
@@ -361,86 +361,102 @@
                     <h2 class="section-title-1 font-weight-bold">{{ trans('app.pricing_desc') }}</h2>
                 </div>
             </div>
+            <p class="text-muted mb-4">* Pode alterar funcionalidades mediante pagamento!</p>
             <div class="row">
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
                     <div class="border p-5 text-center rounded">
-                        <h3>Starter</h3>
-                        <div class="price mb-3"><sup class="currency">$</sup><span class="number">30</span> <span
-                                    class="per">/year</span></div>
-                        <p class="text-muted mb-4">* Billed annualy or $10 per month</p>
+                        <h3>FREE</h3>
+                        <div class="price mb-3"><sup class="currency"></sup><span class="number">0€</span> <span
+                                    class="per">/MONTH</span></div>
                         <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>Max 5 users</li>
-                            <li>29 local security</li>
+                            <li>5 Productos e servicos</li>
+                            <li>5 Postagens Facebook</li>
+                            <li>5 Postagens instagram</li>
+                            <li>5 Postagem em site de anuncios</li>
                             <li class="text-muted">
-                                <del>Desktop App</del>
+                                <del>Loja Online / Vendas</del>
                             </li>
                             <li class="text-muted">
-                                <del>Email Support</del>
-                            </li>
+                                <del>Gestao de redes Sociais</del></li>
                             <li class="text-muted">
-                                <del>Phone Support 24/7</del>
-                            </li>
+                                <del>Gestao de clientes</del></li>
+                            <li class="text-muted">
+                                <del>Facturacao</del></li>
+                            <li class="text-muted">
+                                <del>Gestao de parceiros</del></li>
                         </ul>
-                        <p><a href="#" class="btn btn-lg btn-secondary rounded-0 btn-block">Buy Now</a></p>
+                        <p><a href="register/free" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
                     </div>
                 </div>
-
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
                     <div class="border p-5 text-center rounded">
                         <h3>Starter</h3>
-                        <div class="price mb-3"><sup class="currency">$</sup><span class="number">30</span> <span
-                                    class="per">/year</span></div>
-                        <p class="text-muted mb-4">* Billed annualy or $10 per month</p>
+                        <div class="price mb-3"><sup class="currency"></sup><span class="number">10€</span> <span
+                                    class="per">/MONTH</span></div>
                         <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>Max 5 users</li>
-                            <li>29 local security</li>
+                            <li>15 Productos e servicos</li>
+                            <li>15 Postagens Facebook</li>
+                            <li>15 Postagens instagram</li>
+                            <li>15 Postagem em site de anuncio</li>
                             <li class="text-muted">
-                                <del>Desktop App</del>
+                                <del>Loja Online / Vendas</del>
                             </li>
                             <li class="text-muted">
-                                <del>Email Support</del>
-                            </li>
+                                <del>Gestao de redes Sociais</del></li>
                             <li class="text-muted">
-                                <del>Phone Support 24/7</del>
-                            </li>
+                                <del>Gestao de clientes</del></li>
+                            <li class="text-muted">
+                                <del>Facturacao</del></li>
+                            <li class="text-muted">
+                                <del>Gestao de parceiros</del></li>
                         </ul>
-                        <p><a href="#" class="btn btn-lg btn-secondary rounded-0 btn-block">Buy Now</a></p>
+                        <p><a href="register/starter" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
                     <div class="border p-5 text-center rounded">
                         <h3>Professional</h3>
-                        <div class="price mb-3"><sup class="currency">$</sup><span class="number">72</span> <span
-                                    class="per">/year</span></div>
-                        <p class="text-muted mb-4">* Billed annualy or $30 per month</p>
+                        <div class="price mb-3"><sup class="currency"></sup><span class="number">20€</span> <span
+                                    class="per">/MONTH</span></div>
                         <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>Max 10 users</li>
-                            <li>29 local security</li>
-                            <li>Desktop App</li>
-                            <li>Email Support</li>
+                            <li>Productos e servicos ilimitados</li>
+                            <li>Postagens Facebook ilimitadas</li>
+                            <li>Postagens instagram ilimitadas</li>
+                            <li>Postagem em site de anuncio ilimitadas</li>
                             <li class="text-muted">
-                                <del>Phone Support 24/7</del>
+                                <del>Loja Online / Vendas</del>
                             </li>
+                            <li class="text-muted">
+                                <del>Gestao de redes Sociais</del></li>
+                            <li class="text-muted">
+                                <del>Gestao de clientes</del></li>
+                            <li class="text-muted">
+                                <del>Facturacao</del></li>
+                            <li class="text-muted">
+                                <del>Gestao de parceiros</del></li>
                         </ul>
-                        <p><a href="#" class="btn btn-lg btn-primary rounded-0 btn-block">Buy Now</a></p>
+                        <p><a href="register/professional" class="btn btn-lg btn-primary rounded-0 btn-block">Subscreva</a></p>
                     </div>
                 </div>
 
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
                     <div class="border p-5 text-center rounded">
                         <h3>Enterprise</h3>
-                        <div class="price mb-3"><sup class="currency">$</sup><span class="number">130</span> <span
-                                    class="per">/year</span></div>
-                        <p class="text-muted mb-4">* Billed annualy or $10 per month</p>
+                        <div class="price mb-3"><sup class="currency"></sup><span class="number">40€</span> <span
+                                    class="per">/MONTH</span></div>
                         <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>Unlimitted users</li>
-                            <li>29 local security</li>
-                            <li>Desktop App</li>
-                            <li>Email Support</li>
-                            <li>Phone Support 24/7</li>
+                            <li>Productos e servicos ilimitados</li>
+                            <li>Postagens Facebook ilimitadas</li>
+                            <li>Postagens instagram ilimitadas</li>
+                            <li>Postagem em site de anuncio ilimitadas</li>
+                            <li>Loja Online / Vendas</li>
+                            <li>Gestao de redes Sociais</li>
+                            <li>Gestao de clientes</li>
+                            <li>Facturacao</li>
+                            <li>Gestao de parceiros</li>
                         </ul>
-                        <p><a href="#" class="btn btn-lg btn-secondary rounded-0 btn-block">Buy Now</a></p>
+                        <p><a href="register/enterprise" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
                     </div>
                 </div>
 
@@ -464,7 +480,7 @@
                         <a href="single.html">
                             <img src="{{ asset('assets/images/img_2.jpg') }}" alt="Image" class="img-fluid">
                         </a>
-                        <h2 class="font-size-regular"><a href="#">Best For Web Startups and Web Apps</a></h2>
+                        <h2 class="font-size-regular"><a href="#">Support Mb-Away</a></h2>
                         <div class="meta mb-4">Ham Brook <span class="mx-2">&bullet;</span> Jan 18, 2020<span
                                     class="mx-2">&bullet;</span> <a href="#">News</a></div>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Natus eligendi nobis ea maiores

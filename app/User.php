@@ -34,13 +34,6 @@ class User extends Authenticatable
 
     public function save(array $options = [])
     {
-        if (app('env') == 'production' &&
-            !app()->runningInConsole() &&
-            !app()->runningUnitTests()) {
-            Alert::warning('User editing is disabled in the demo.');
-
-            return true;
-        }
 
         return parent::save($options);
     }
