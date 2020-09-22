@@ -24,7 +24,7 @@ return [
     "features_description_title_small_desc" => "Post das redes sociais, obtenha parceiros, e clientes de forma inovadora, simples. Sem se preocupar com a fatucturacao. B2B 2 B2C em uma so plataforma. Divulgue os seus productos ou servicos. ",
     "features_description_title" => "Negócios em mente",
     "features_description_title_desc" => "Procura um parceiro para vender os seus produtos por comissão. Quer dilvulgar o seu trabalho como independente.Sim tambem eh possivel.",
-    'address' => "Rua Eng. Frederico Ulrich 3210 S213, 4470-605 Maia - Porto - Portugal",
+    'address' => "Rua Nossa Senhora da Maia, n.º 77, 1.º Andar, Esc. 23, 4470-255 - Maia",
     'phone' => "+351 926 608 440",
     'invovate' => 'Tecnologias inovadoras',
     'email' => "info@incomeportugal.com",

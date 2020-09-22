@@ -54,7 +54,7 @@
             <div class="row align-items-center">
 
                 <div class="col-6 col-xl-2">
-                    <div class="mb-0 site-logo"><a href="index.html" class="mb-0">{{ trans('app.logo') }}<span
+                    <div class="mb-0 site-logo"><a href="/" class="mb-0">{{ trans('app.logo') }}<span
                                     class="text-primary">.</span> </a></div>
                 </div>
 
@@ -620,6 +620,8 @@
                                 <li><a href="#testimonials-section" class="smoothscroll">{{ trans('app.Testimonials') }}</a></li>
                                 <li><a href="#contact-section" class="smoothscroll">{{ trans('app.Contact') }}</a></li>
                                 <li><a href="{{ backpack_url() }}" class="smoothscroll">{{ trans('app.Login') }}</a></li>
+                                <li><a href="#about-section" class="smoothscroll">{{ trans('app.GDPR') }}</a></li>
+                                <li><a href="#about-section" class="smoothscroll">{{ trans('app.licence') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 footer-social">
