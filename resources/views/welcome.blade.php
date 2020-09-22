@@ -78,10 +78,10 @@
                             <li class="social"><a href="#contact-section" class="nav-link"><span
                                             class="icon-linkedin"></span></a></li>
                             @auth
-                                <a class="btn btn-primary text-black" type="button" href="/admin">{{ trans('app.admin') }}
+                                <a class="btn btn-primary text-black" type="button" href="admin/dashboard">{{ trans('app.admin') }}
                                 </a>
                             @else
-                                <a class="btn btn-primary text-black"  href="/admin/login" type="button" >{{ trans('app.login') }}
+                                <a class="btn btn-primary text-black"  href="admin/dashboard" type="button" >{{ trans('app.login') }}
                                 </a>
                             @endauth
                         </ul>
@@ -100,7 +100,7 @@
                     <div class="mb-5">
                         <h1 class="hero-heading">{{ trans('app.productivity') }}</h1>
                         <p>{{ trans('app.marketing') }}</p>
-                        <a href="#" class="btn btn-primary">{{ trans('app.free') }}</a>
+                        <a href="admin/dashboard" class="btn btn-primary">{{ trans('app.free') }}</a>
                     </div>
                     <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout_laptop.png') }}" alt="image" class="img-fluid">
                 </div>
