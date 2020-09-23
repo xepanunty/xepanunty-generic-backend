@@ -1,7 +1,11 @@
 <?php
 
 return [
-    'NIF' => 'NIF',
+    'nifnotvalid' => 'NIF invalido',
+    'nifvalidsubmitcertificate' => 'NIF Valido, necessario comprovar actividade!',
+    'nifok' => 'NIF ok, auto preenchimento',
+    'invalidnif' => 'NIF invalido',
+    'NIF' => 'NIF/NIPC',
     'loading' => 'Loading...',
     'title' => 'WebApp - Income Portugal: a sua empresa no marketing digital, globalizacao e crescimento!',
     'logo' => 'IncomePortugal',

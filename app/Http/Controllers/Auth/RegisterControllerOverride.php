@@ -1,6 +1,7 @@
 <?php
 namespace App\Http\Controllers\Auth;
 
+use App\Rules\Nif;
 use Backpack\CRUD\app\Http\Controllers\Auth\RegisterController;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
@@ -10,10 +11,12 @@ use Validator;
 
 class RegisterControllerOverride extends RegisterController
 {
+    protected $nif;
 
     public function __construct()
     {
         parent::__construct();
+        $this->nif = new Nif();
     }
 
     /**
@@ -29,16 +32,18 @@ class RegisterControllerOverride extends RegisterController
         $user = new $user_model_fqn();
         $users_table = $user->getTable();
         $email_validation = backpack_authentication_column() == 'email' ? 'email|' : '';
-
-        return Validator::make($data, [
-            'nif'                             => 'required|min:9|max:9',
-            'name'                             => 'required|max:255',
+        $validator =  Validator::make($data, [
+            'nif' => ["required", 'integer', "digits_between:9,9", 'unique:users',  $this->nif],
+            'name'                             => 'required|max:80',
             backpack_authentication_column()   => 'required|'.$email_validation.'max:255|unique:'.$users_table,
             'password'                         => 'required|min:6|confirmed',
             'phone'                             => 'required|max:255',
             'use_phone_in_transactions'         => 'required|max:255',
         ]);
+
+        return $validator;
     }
+
 
     /**
      * Create a new user instance after a valid registration.
@@ -75,6 +80,7 @@ class RegisterControllerOverride extends RegisterController
         }
 
         $this->validator($request->all())->validate();
+
 
         $user = $this->create($request->all());
 
