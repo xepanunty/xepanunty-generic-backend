@@ -442,7 +442,7 @@ return [
         // "pt_BR" => "Portuguese (Brazil)",
         // "pt_GW" => "Portuguese (Guinea-Bissau)",
         // "pt_MZ" => "Portuguese (Mozambique)",
-        // "pt_PT" => "Portuguese (Portugal)",
+         "pt_PT" => "Portuguese (Portugal)",
         // "pt" => "Portuguese",
         // "pa_Arab" => "Punjabi (Arabic)",
         // "pa_Arab_PK" => "Punjabi (Arabic, Pakistan)",

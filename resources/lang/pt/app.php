@@ -1,7 +1,7 @@
 <?php
 
 return [
-
+    'NIF' => 'NIF',
     'loading' => 'Loading...',
     'title' => 'WebApp - Income Portugal: a sua empresa no marketing digital, globalizacao e crescimento!',
     'logo' => 'IncomePortugal',
