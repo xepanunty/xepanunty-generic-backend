@@ -23,7 +23,10 @@
         "backpack/revise-operation": "^1.0",
         "backpack/filemanager": "^1.0",
         "consoletvs/charts": "6.*",
-        "sunra/php-simple-html-dom-parser": "^1.5"
+        "sunra/php-simple-html-dom-parser": "^1.5",
+        "propaganistas/laravel-phone": "^4.2",
+        "sendinblue/api-v3-sdk": "7.x.x",
+        "hipay/hipay-fullservice-sdk-php": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",

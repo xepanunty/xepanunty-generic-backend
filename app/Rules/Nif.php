@@ -43,15 +43,17 @@ class Nif implements Rule
         } else {
             $this->result = json_decode($exists->json, true);
         }
-      //  dd(  $this->result);
+        return isset($this->result['type']) && in_array( $this->result['type'], ['success', 'warning']);
     }
 
     private function saveData($result)
     {
-        $newCompany  = new CompanyValidator();
-        $newCompany->nif =  (int)$result['nif'];
-        $newCompany->json =  json_encode($result);
-        $newCompany->save();
+        if(isset($result['nif'])) {
+            $newCompany  = new CompanyValidator();
+            $newCompany->nif =  (int)$result['nif'];
+            $newCompany->json =  json_encode($result);
+            $newCompany->save();
+        }
 
     }
 
@@ -69,16 +71,16 @@ class Nif implements Rule
            $message = "";
            switch ($this->result['type']) {
                case 'warning':
-                   $message = $this->result['message'];
+                   //$message = $this->result['message'];
                    break;
                case 'error':
                    $message = $this->result['message'];
                    break;
                case 'success' :
-                   $message = $this->result['message'];
+                  // $message = $this->result['message'];
                    break;
                default :
-                   return false;
+                   $message = $this->result['message'];
                    break;
            }
            return trans($message);

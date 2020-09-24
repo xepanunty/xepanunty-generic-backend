@@ -19,7 +19,7 @@ Route::get('register/{package?}', 'Auth\RegisterControllerOverride@showRegistrat
 Route::post('register/{package?}', 'Auth\RegisterControllerOverride@register');
 Route::get('dashboard', 'AdminControllerOverride@dashboard')->name('backpack.dashboard'); // see latter
 
-if (app('env') == 'production') {
+if (app('env') !== 'production') {
 
     Route::get("/clean", function() {
         \Illuminate\Support\Facades\Artisan::call('cache:clear');

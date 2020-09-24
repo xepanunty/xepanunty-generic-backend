@@ -74,8 +74,8 @@ return [
     */
 
     'from' => [
-        'address' => env('MAIL_FROM_ADDRESS', 'demo@backpackforlaravel.com'),
-        'name'    => env('MAIL_FROM_NAME', 'Backpack Demo'),
+        'address' => env('MAIL_FROM_ADDRESS', 'xepanunty@gmail.com'), // change after
+        'name'    => env('MAIL_FROM_NAME', 'IncomePortugal Backoffice'),
     ],
 
     /*

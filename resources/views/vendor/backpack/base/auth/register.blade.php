@@ -1,6 +1,11 @@
 <?php header("Access-Control-Allow-Origin: *"); ?>
 @extends(backpack_view('layouts.plain'))
-
+<?php
+$request = request()->fullUrl();
+$explodeUri =  explode('/', $request);
+$selectedPackage = isset(array_reverse($explodeUri)[0]) ? strtoupper(array_reverse($explodeUri)[0]) : "FREE";
+$selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
+?>
 @section('content')
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
@@ -32,6 +37,36 @@
                                 @if ($errors->has('name'))
                                     <span class="invalid-feedback">
                                         <strong>{{ $errors->first('name') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="name">{{ trans('app.insert_phone') }}</label>
+
+                            <div>
+                                <input type="phone" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" id="phone" value="{{ old('phone') }}">
+
+                                @if ($errors->has('phone'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('phone') }}</strong>
+                                    </span>
+                                @endif
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="control-label" for="name">{{ trans('app.package') }}</label>
+
+                            <div>
+                                <select  {{$selectedPackage !== "FREE" ? 'disabled' : '' }} name="package" id="package"  class="form-control{{ $errors->has('package') ? ' is-invalid' : '' }}">
+                                    <option value="FREE" {{$selectedPackage == "FREE" ? 'selected' : '' }}>{{trans('app.FREE') }}</option>
+                                    <option value="STARTER" {{$selectedPackage == "STARTER" ? 'selected' : '' }}>{{trans('app.STARTER') }}</option>
+                                    <option value="PROFESSIONAL" {{$selectedPackage == "PROFESSIONAL" ? 'selected' : '' }}>{{trans('app.PROFESSIONAL') }}</option>
+                                    <option value="ENTERPRISE" {{$selectedPackage == "ENTERPRISE" ? 'ENTERPRISE' : '' }}>{{trans('app.ENTERPRISE') }}</option>
+                                </select>
+                                @if ($errors->has('package'))
+                                    <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('package') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -78,6 +113,24 @@
                                 @endif
                             </div>
                         </div>
+                        <div class="form-group">
+                            <input type="checkbox" class="{{ $errors->has('terms_and_conditions') ? ' is-invalid' : '' }}" name="terms_and_conditions" id="terms_and_conditions">
+                           <label class="control-label" for="terms_and_conditions"><a href="terms" target="_blank"><span >{{ trans('app.terms_and_conditions') }}</span></a></label>
+                        @if ($errors->has('terms_and_conditions'))
+                                    <span class="invalid-feedback" style="display: block!important;">
+                                        <strong>{{ $errors->first('terms_and_conditions') }}</strong>
+                                    </span>
+                                @endif
+                        </div>
+                        <div class="form-group">
+                            <input type="checkbox" class="{{ $errors->has('use_phone_in_transactions') ? ' is-invalid' : '' }}" name="use_phone_in_transactions" id="use_phone_in_transactions">
+                            <label class="control-label" for="use_phone_in_transactions">{{ trans('app.use_phone_in_transactions') }}</label>
+                            @if ($errors->has('use_phone_in_transactions'))
+                                <span class="invalid-feedback" style="display: block!important;">
+                                        <strong>{{ $errors->first('use_phone_in_transactions') }}</strong>
+                                    </span>
+                            @endif
+                        </div>
 
                         <div class="form-group">
                             <div>
@@ -89,10 +142,6 @@
                     </form>
                 </div>
             </div>
-            @if (backpack_users_have_email())
-                <div class="text-center"><a href="{{ route('backpack.auth.password.reset') }}">{{ trans('backpack::base.forgot_your_password') }}</a></div>
-            @endif
-            <div class="text-center"><a href="{{ route('backpack.auth.login') }}">{{ trans('backpack::base.login') }}</a></div>
         </div>
     </div>
 @endsection

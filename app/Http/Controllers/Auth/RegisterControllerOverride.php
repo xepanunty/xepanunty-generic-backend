@@ -1,12 +1,15 @@
 <?php
 namespace App\Http\Controllers\Auth;
 
+use App\External\Services\HiPayService;
+use App\External\Services\SendInBlueApi;
 use App\Rules\Nif;
 use Backpack\CRUD\app\Http\Controllers\Auth\RegisterController;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Backpack\CRUD\app\Library\Auth\RegistersUsers;
 use Illuminate\Routing\Controller;
+use Illuminate\Validation\Rule;
 use Validator;
 
 class RegisterControllerOverride extends RegisterController
@@ -37,8 +40,11 @@ class RegisterControllerOverride extends RegisterController
             'name'                             => 'required|max:80',
             backpack_authentication_column()   => 'required|'.$email_validation.'max:255|unique:'.$users_table,
             'password'                         => 'required|min:6|confirmed',
-            'phone'                             => 'required|max:255',
-            'use_phone_in_transactions'         => 'required|max:255',
+            //'phone'       => 'phone:PT,LU',
+            'phone'       => 'phone:PT,mobile',
+            'use_phone_in_transactions'         => 'required',
+            'terms_and_conditions'         => 'required',
+            'package' => 'required'
         ]);
 
         return $validator;
@@ -57,10 +63,20 @@ class RegisterControllerOverride extends RegisterController
         $user_model_fqn = config('backpack.base.user_model_fqn');
         $user = new $user_model_fqn();
 
+
         return $user->create([
             'name'                             => $data['name'],
             backpack_authentication_column()   => $data[backpack_authentication_column()],
             'password'                         => bcrypt($data['password']),
+            'nif'                             => $data['nif'],
+            'phone'                             => $data['phone'],
+            'package'                             => $data['package'],
+            'email'                             => $data['email'],
+            'terms_and_conditions'             => $data['terms_and_conditions'] == 'on' ? 1 : 0,
+            'use_phone_in_transactions'             => $data['use_phone_in_transactions']  == 'on' ? 1 : 0,
+            'register_date'             => date("Y-m-d H:i:s"),
+            'last_login'             => date("Y-m-d H:i:s"),
+            'payment_date'             => date("Y-m-d H:i:s"),
         ]);
     }
 
@@ -85,8 +101,10 @@ class RegisterControllerOverride extends RegisterController
         $user = $this->create($request->all());
 
         event(new Registered($user));
-        $this->guard()->login($user);
+        // send email account created or
 
+
+        $this->guard()->login($user);
         return redirect($this->redirectPath());
     }
 

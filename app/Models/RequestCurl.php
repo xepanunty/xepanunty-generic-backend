@@ -131,7 +131,13 @@ class RequestCurl
         }
         $content = $this->_curl_get($url);
 
+        // not exists company
+        if (str_contains($content, "Página não encontrada")) {
+            $url = Services::$justURI . $nif;
+            $content = $this->_curl_get($url);
+        }
         if (str_contains($content, "O NIF indicado não é válido e não encontramos resultados na pesquisa por nome em empresas.")) {
+
             return ['nif' => $nifOriginal, 'message' => trans('app.nifnotvalid'), 'type' => 'error'];
         }
         if (str_contains($content, "O NIF indicado é válido mas não conseguimos determinar a entidade associada.")) {

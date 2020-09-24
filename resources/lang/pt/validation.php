@@ -79,6 +79,7 @@ return [
     'timezone' => 'The :attribute must be a valid zone.',
     'unique'   => 'O :attribute ja existe',
     'url'      => 'The :attribute format is invalid.',
+    'phone' => 'O Telemóvel  esta errado',
 
     /*
     |--------------------------------------------------------------------------
