@@ -52,15 +52,14 @@
 
         <div class="container">
             <div class="row align-items-center">
-
                 <div class="col-6 col-xl-2">
-                    <div class="mb-0 site-logo"><a href="/" class="mb-0">{{ trans('app.logo') }}<span
-                                    class="text-primary">.</span> </a></div>
+                    <div class="mb-0 mr-10">
+                        <img class="mb-0 site-logo" src="{{ asset('assets/logo/income_pt.png') }}" alt="{{ trans('app.logo') }}"/>
+                    </div>
                 </div>
 
                 <div class="col-12 col-md-10 d-none d-xl-block">
-                    <nav class="site-navigation position-relative text-right" role="navigation">
-
+                    <nav class="site-navigation position-relative text-right" style="margin-right: -20px;" role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li><a href="#home-section" class="nav-link">{{ trans('app.home') }}</a></li>
                             <li>
