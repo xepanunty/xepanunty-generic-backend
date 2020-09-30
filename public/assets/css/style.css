@@ -2200,3 +2200,7 @@ figure figcaption {
   color: #aaa;
   font-size: 14px;
   line-height: 1.5; }
+
+.test-class {
+  color: #aaa;
+}
