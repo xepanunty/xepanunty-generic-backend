@@ -6,7 +6,8 @@ namespace App\External\Services;
 
 class Services
 {
-//https://ec.europa.eu/taxation_customs/vies/faq.html -> alterado para outros paises no futuro
+
+    //https://ec.europa.eu/taxation_customs/vies/faq.html -> alterado para outros paises no futuro
     public $NIF_API = "https://www.nif.pt/?json=1&q={NIF_REPLACE}&key="; // this have one limit not good for us
 
     public static $justURI = "https://www.nif.pt/?q=";
