@@ -1,29 +1,26 @@
 <!DOCTYPE html>
+<?php
+// change styles and logo, based on the logo
+$country = env('APP_LOCAL') === "PT" ? "pt" : "lu";
+$isPortugal = env('APP_LOCAL') === "PT";
+?>
+
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 <head>
     <title>{{ trans('app.title') }}</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
     <link rel="stylesheet" href="{{ asset('assets/fonts/icomoon/style.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap.min.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/'.$country.'/bootstrap.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datepicker.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/font/flaticon.css') }}">
-
     <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}">
-
+    <link rel="stylesheet" href="{{ asset('assets/css/'.$country.'/style.css') }}">
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -54,12 +51,15 @@
             <div class="row align-items-center">
                 <div class="col-6 col-xl-2">
                     <div class="mb-0 mr-10">
-                        <img class="mb-0 site-logo" src="{{ asset('assets/logo/income_pt.png') }}" alt="{{ trans('app.logo') }}"/>
+                        <img class="mb-0 site-logo" src="{{
+   $isPortugal ? asset('assets/logo/income_pt.png') : asset('assets/logo/income_lu.png')}}"
+                             alt="{{ trans('app.logo') }}"/>
                     </div>
                 </div>
 
                 <div class="col-12 col-md-10 d-none d-xl-block">
-                    <nav class="site-navigation position-relative text-right" style="margin-right: -20px;" role="navigation">
+                    <nav class="site-navigation position-relative text-right" style="margin-right: -20px;"
+                         role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li><a href="#home-section" class="nav-link">{{ trans('app.home') }}</a></li>
                             <li>
@@ -77,10 +77,11 @@
                             <li class="social"><a href="#contact-section" class="nav-link"><span
                                             class="icon-linkedin"></span></a></li>
                             @auth
-                                <a class="btn btn-primary text-black" type="button" href="admin/dashboard">{{ trans('app.admin') }}
+                                <a class="btn btn-primary text-black" type="button"
+                                   href="admin/dashboard">{{ trans('app.admin') }}
                                 </a>
                             @else
-                                <a class="btn btn-primary"  href="admin/dashboard" type="button" >{{ trans('app.login') }}
+                                <a class="btn btn-primary" href="admin/dashboard" type="button">{{ trans('app.login') }}
                                 </a>
                             @endauth
                         </ul>
@@ -101,7 +102,8 @@
                         <p>{{ trans('app.marketing') }}</p>
                         <a href="#pricing-section" class="btn btn-primary">{{ trans('app.free') }}</a>
                     </div>
-                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout_laptop.png') }}" alt="image" class="img-fluid">
+                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout_laptop.png') }}" alt="image"
+                         class="img-fluid">
                 </div>
             </div>
         </div>
@@ -118,7 +120,8 @@
             </div>
             <div class="row align-items-center mb-5">
                 <div class="col-lg-6 mb-5 order-lg-2 mb-lg-0" data-aos="fade-right">
-                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout.jpg') }}" alt="Image" class="img-fluid img-shadow">
+                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout.jpg') }}" alt="Image"
+                         class="img-fluid img-shadow">
                 </div>
                 <div class="col-lg-5 mr-auto">
                     <div class="mb-4">
@@ -147,7 +150,8 @@
 
             <div class="row align-items-center">
                 <div class="col-lg-6 mb-5 mb-lg-0" data-aos="fade-left">
-                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout.jpg') }}" alt="Image" class="img-fluid img-shadow">
+                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout.jpg') }}" alt="Image"
+                         class="img-fluid img-shadow">
                 </div>
                 <div class="col-lg-5 order-lg-1 ml-auto">
                     <div class="mb-4">
@@ -176,7 +180,8 @@
 
             <div class="row align-items-center mb-5">
                 <div class="col-lg-6 mb-5 order-lg-2 mb-lg-0" data-aos="fade-right">
-                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout.jpg') }}" alt="Image" class="img-fluid img-shadow">
+                    <img src="{{ asset('assets/images/untree.co_dashboard_mocklayout.jpg') }}" alt="Image"
+                         class="img-fluid img-shadow">
                 </div>
                 <div class="col-lg-5 mr-auto">
                     <div class="mb-4">
@@ -294,7 +299,8 @@
                     </blockquote>
 
                     <figure class="mb-4 d-flex align-items-center justify-content-center">
-                        <div><img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image" class="w-50 img-fluid mb-3"></div>
+                        <div><img src="{{ asset('assets/images/person_3.jpg') }}" alt="Image"
+                                  class="w-50 img-fluid mb-3"></div>
                         <p>John Smith</p>
                     </figure>
                 </div>
@@ -308,7 +314,8 @@
                             mouth.&rdquo;</p>
                     </blockquote>
                     <figure class="mb-4 d-flex align-items-center justify-content-center">
-                        <div><img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image" class="w-50 img-fluid mb-3"></div>
+                        <div><img src="{{ asset('assets/images/person_2.jpg') }}" alt="Image"
+                                  class="w-50 img-fluid mb-3"></div>
                         <p>Christine Aguilar</p>
                     </figure>
 
@@ -324,7 +331,8 @@
                             decided to leave for the far World of Grammar.&rdquo;</p>
                     </blockquote>
                     <figure class="mb-4 d-flex align-items-center justify-content-center">
-                        <div><img src="{{ asset('assets/images/person_4.jpg') }}" alt="Image" class="w-50 img-fluid mb-3"></div>
+                        <div><img src="{{ asset('assets/images/person_4.jpg') }}" alt="Image"
+                                  class="w-50 img-fluid mb-3"></div>
                         <p>Robert Spears</p>
                     </figure>
 
@@ -342,7 +350,8 @@
                             way.&rdquo;</p>
                     </blockquote>
                     <figure class="mb-4 d-flex align-items-center justify-content-center">
-                        <div><img src="{{ asset('assets/images/person_4.jpg') }}" alt="Image" class="w-50 img-fluid mb-3"></div>
+                        <div><img src="{{ asset('assets/images/person_4.jpg') }}" alt="Image"
+                                  class="w-50 img-fluid mb-3"></div>
                         <p>Bruce Rogers</p>
                     </figure>
 
@@ -376,15 +385,20 @@
                                 <del>Loja Online / Vendas</del>
                             </li>
                             <li class="text-muted">
-                                <del>Gestao de redes Sociais</del></li>
+                                <del>Gestao de redes Sociais</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Gestao de clientes</del></li>
+                                <del>Gestao de clientes</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Facturacao</del></li>
+                                <del>Facturacao</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Gestao de parceiros</del></li>
+                                <del>Gestao de parceiros</del>
+                            </li>
                         </ul>
-                        <p><a href="register/free" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
+                        <p><a href="register/free" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
+                        </p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
@@ -401,15 +415,20 @@
                                 <del>Loja Online / Vendas</del>
                             </li>
                             <li class="text-muted">
-                                <del>Gestao de redes Sociais</del></li>
+                                <del>Gestao de redes Sociais</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Gestao de clientes</del></li>
+                                <del>Gestao de clientes</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Facturacao</del></li>
+                                <del>Facturacao</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Gestao de parceiros</del></li>
+                                <del>Gestao de parceiros</del>
+                            </li>
                         </ul>
-                        <p><a href="register/starter" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
+                        <p><a href="register/starter" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
+                        </p>
                     </div>
                 </div>
 
@@ -427,15 +446,20 @@
                                 <del>Loja Online / Vendas</del>
                             </li>
                             <li class="text-muted">
-                                <del>Gestao de redes Sociais</del></li>
+                                <del>Gestao de redes Sociais</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Gestao de clientes</del></li>
+                                <del>Gestao de clientes</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Facturacao</del></li>
+                                <del>Facturacao</del>
+                            </li>
                             <li class="text-muted">
-                                <del>Gestao de parceiros</del></li>
+                                <del>Gestao de parceiros</del>
+                            </li>
                         </ul>
-                        <p><a href="register/professional" class="btn btn-lg btn-primary rounded-0 btn-block">Subscreva</a></p>
+                        <p><a href="register/professional"
+                              class="btn btn-lg btn-primary rounded-0 btn-block">Subscreva</a></p>
                     </div>
                 </div>
 
@@ -455,7 +479,8 @@
                             <li>Facturacao</li>
                             <li>Gestao de parceiros</li>
                         </ul>
-                        <p><a href="register/enterprise" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
+                        <p><a href="register/enterprise"
+                              class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
                     </div>
                 </div>
 
@@ -596,7 +621,8 @@
 
                         <div class="row form-group">
                             <div class="col-md-12">
-                                <input type="submit" value="{{ trans('app.send_message') }}" class="btn btn-primary btn-md text-white">
+                                <input type="submit" value="{{ trans('app.send_message') }}"
+                                       class="btn btn-primary btn-md text-white">
                             </div>
                         </div>
 
@@ -631,10 +657,13 @@
                                 <li><a href="#about-section" class="smoothscroll">{{ trans('app.Terms') }}</a></li>
                                 <li><a href="#about-section" class="smoothscroll">{{ trans('app.Policy') }}</a></li>
                                 <li><a href="#about-section" class="smoothscroll">{{ trans('app.About') }}</a></li>
-                                <li><a href="#services-section" class="smoothscroll">{{ trans('app.Services') }}</a></li>
-                                <li><a href="#testimonials-section" class="smoothscroll">{{ trans('app.Testimonials') }}</a></li>
+                                <li><a href="#services-section" class="smoothscroll">{{ trans('app.Services') }}</a>
+                                </li>
+                                <li><a href="#testimonials-section"
+                                       class="smoothscroll">{{ trans('app.Testimonials') }}</a></li>
                                 <li><a href="#contact-section" class="smoothscroll">{{ trans('app.Contact') }}</a></li>
-                                <li><a href="{{ backpack_url() }}" class="smoothscroll">{{ trans('app.Login') }}</a></li>
+                                <li><a href="{{ backpack_url() }}" class="smoothscroll">{{ trans('app.Login') }}</a>
+                                </li>
                                 <li><a href="#about-section" class="smoothscroll">{{ trans('app.GDPR') }}</a></li>
                                 <li><a href="#about-section" class="smoothscroll">{{ trans('app.licence') }}</a></li>
                             </ul>
@@ -655,7 +684,8 @@
                             <input type="text" class="form-control border-secondary bg-transparent"
                                    placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary text-black" type="button" id="button-addon2">{{ trans('app.send') }}
+                                <button class="btn btn-primary text-black" type="button"
+                                        id="button-addon2">{{ trans('app.send') }}
                                 </button>
                             </div>
                         </div>
@@ -669,7 +699,7 @@
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                                 Copyright &copy;<script>document.write(new Date().getFullYear());</script>
                                 All rights reserved | Created by <i class="icon-heart text-danger"
-                                                                                    aria-hidden="true"></i> by <a
+                                                                    aria-hidden="true"></i> by <a
                                         href="https://xepanunty.com" target="_blank">Xepanunty software services</a>
                                 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
                             </small></p>
@@ -680,7 +710,6 @@
             </div>
         </div>
     </footer>
-
 </div> <!-- .site-wrap -->
 <script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
 <script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
