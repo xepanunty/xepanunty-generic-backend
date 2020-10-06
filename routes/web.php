@@ -17,6 +17,7 @@ Route::get('/', [\App\Http\Controllers\Marketing\MarketingController::class, 'in
 // OVERRIDE ACTIONS FOR MY BUSSINESS LOGIC
 Route::get('register/{package?}', 'Auth\RegisterControllerOverride@showRegistrationForm')->name('backpack.auth.register');
 Route::post('register/{package?}', 'Auth\RegisterControllerOverride@register');
+Route::post('subscribe-newsletter', 'Auth\RegisterControllerOverride@register');
 Route::get('dashboard', 'AdminControllerOverride@dashboard')->name('backpack.dashboard'); // see latter
 
 if (app('env') !== 'production') {

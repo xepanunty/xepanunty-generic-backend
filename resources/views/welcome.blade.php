@@ -20,7 +20,10 @@ $isPortugal = env('APP_LOCAL') === "PT";
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datepicker.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/font/flaticon.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
+
+    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select-country.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/'.$country.'/style.css') }}">
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -84,6 +87,11 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                 <a class="btn btn-primary" href="admin/dashboard" type="button">{{ trans('app.login') }}
                                 </a>
                             @endauth
+                            @if(!$isPortugal)
+                            <li>
+                                <select class="selectpicker countrypicker" data-default="LU" data-countries="PT,GB,FR,DE,LU" ></select>
+                            </li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
@@ -723,5 +731,6 @@ $isPortugal = env('APP_LOCAL') === "PT";
 <script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
 <script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
 <script src="{{ asset('assets/js/main.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap-select-country.min.js') }}"></script>
 </body>
 </html>
