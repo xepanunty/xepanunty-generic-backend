@@ -12,7 +12,8 @@ class SendInBlueApi
      * @var array
      */
     public static $TEMPLATES = [
-        'INCOMEPORTUGAL_REGISTER_NEW' => 1
+        'INCOMEPORTUGAL_REGISTER_NEW' => 1,
+        'INCOMEPORTUGAL_RECEIVED_EMAIL' => 2,
     ];
 
     /**
@@ -38,7 +39,7 @@ class SendInBlueApi
      * @param $dataR
      * @throws \SendinBlue\Client\ApiException
      */
-    public static function sendinBlueEmail($emailContact, $templateId = false, $templateAttribuites = [], $pathToFile = false)
+    public static function sendinBlueEmail($emailContact, $templateId = false, $templateAttribuites = [], $internal = false, $pathToFile = false)
     {
         // send in blue API
         $config = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', env('YOUR_API_KEY_SEND_IN_BLUE'));
@@ -61,24 +62,32 @@ class SendInBlueApi
             try {
                 $result = $api_instance->createContact($create_contact);
             } catch (\Exception $e) {
-                dd($e->getMessage());
+                //dd($e->getMessage());
             }
         }
+
         if (!empty($pathToFile)) {
             $data = [
-                'emailTo' => $emailContact,
+                'emailTo' =>  $emailContact,
                 'attachmentUrl' => $pathToFile
+
             ];
         } else {
             $data = [
-                'emailTo' => $emailContact,
+                'emailTo' =>  $emailContact
             ];
+        }
+        if ($internal) {
+            $data['replyTo'] =  "xepanunty@gmail.com";
+            $data['emailCc'] =  "xepanunty+contact@gmail.com";
         }
         try {
             $apiInstance = new  \SendinBlue\Client\Api\TransactionalEmailsApi(
                 new \GuzzleHttp\Client(),
                 $config
             );
+           // var_dump($data); die;
+            // need send email for us or create a ticket service
             $emailSendExternal = new \SendinBlue\Client\Model\SendEmail($data);
 
             $result = $apiInstance->sendTemplate($templateId, $emailSendExternal);

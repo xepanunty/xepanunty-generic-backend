@@ -586,20 +586,36 @@ $isPortugal = env('APP_LOCAL') === "PT";
             </div>
             <div class="row">
                 <div class="col-md-12 mb-5">
-
-
-                    <form action="#" class="p-5 bg-white">
+                    @if(Session::has('success'))
+                        <div class="alert alert-success">
+                            {{Session::get('success')}}
+                        </div>
+                    @endif
+                    <form method="post" action="{{ route('contact.store', '#contact-section') }}" class="p-5 bg-white">
+                        <!-- CROSS Site Request Forgery Protection -->
+                        @csrf
 
                         <h2 class="h4 text-black mb-5">{{ trans('app.contacts') }}</h2>
 
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label class="text-black" for="fname">{{ trans('app.fristname') }}</label>
-                                <input type="text" id="fname" class="form-control">
+                                <input required type="text" class="form-control {{ $errors->has('fname') ? 'error' : '' }}" name="fname" id="fname">
+                                <!-- Error -->
+                                @if ($errors->has('fname'))
+                                    <div class="text-danger">
+                                        {{ $errors->first('fname') }}
+                                    </div>
+                                @endif
                             </div>
                             <div class="col-md-6">
                                 <label class="text-black" for="lname">{{ trans('app.lastname') }}</label>
-                                <input type="text" id="lname" class="form-control">
+                                <input required type="text"  class="form-control {{ $errors->has('lname') ? 'error' : '' }}" name="lname" id="lname">
+                                @if ($errors->has('lname'))
+                                    <div class="text-danger">
+                                        {{ $errors->first('lname') }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
@@ -607,7 +623,12 @@ $isPortugal = env('APP_LOCAL') === "PT";
 
                             <div class="col-md-12">
                                 <label class="text-black" for="email">{{ trans('app.email_contact') }}</label>
-                                <input type="email" id="email" class="form-control">
+                                <input required type="email" class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email" id="email">
+                                @if ($errors->has('email'))
+                                    <div class="text-danger">
+                                        {{ $errors->first('email') }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
@@ -615,26 +636,37 @@ $isPortugal = env('APP_LOCAL') === "PT";
 
                             <div class="col-md-12">
                                 <label class="text-black" for="subject">{{ trans('app.subject') }}</label>
-                                <input type="subject" id="subject" class="form-control">
+                                <input required type="text" class="form-control {{ $errors->has('subject') ? 'error' : '' }}" name="subject"
+                                       id="subject">
+                                @if ($errors->has('subject'))
+                                    <div class="text-danger">
+                                        {{ $errors->first('subject') }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <label class="text-black" for="message">{{ trans('app.message') }}</label>
-                                <textarea name="message" id="message" cols="30" rows="7" class="form-control"
+
+                                <textarea required class="form-control {{ $errors->has('message') ? 'error' : '' }}" name="message" id="message" cols="30" rows="7"
                                           placeholder="{{ trans('app.message_notes') }}"></textarea>
+
+                                @if ($errors->has('message'))
+                                    <div class="text-danger">
+                                        {{ $errors->first('message') }}
+                                    </div>
+                                @endif
                             </div>
                         </div>
 
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <input type="submit" value="{{ trans('app.send_message') }}"
-                                       class="btn btn-primary btn-md text-white">
+                                       name="send"  class="btn btn-primary btn-md text-white">
                             </div>
                         </div>
-
-
                     </form>
                 </div>
 
