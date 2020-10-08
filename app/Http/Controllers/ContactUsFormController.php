@@ -1,13 +1,15 @@
 <?php
 
 namespace App\Http\Controllers;
+
 use App\External\Services\SendInBlueApi;
 use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 use App\Contact;
 use Validator;
 
-class ContactUsFormController extends Controller {
+class ContactUsFormController extends Controller
+{
 
 
     /**
@@ -26,15 +28,14 @@ class ContactUsFormController extends Controller {
             'subject' => 'required',
             'message' => 'required'
         ];
-        $validator =  Validator::make($data, $formData);
+        $validator = Validator::make($data, $formData);
         return $validator;
     }
 
 
-
-
     // Store Contact Form data
-    public function ContactUsForm(ContactRequest $request) {
+    public function ContactUsForm(ContactRequest $request)
+    {
 
         // Form validation
         $isValid = $this->validator($request->all())->validate();
@@ -43,13 +44,23 @@ class ContactUsFormController extends Controller {
 
             $dateRequested = $request->all();
 
-              SendInBlueApi::sendinBlueEmail([$dateRequested['email']],  2,
-                  ['SOBRENOME' => $dateRequested['lname'] , 'NOME' =>$dateRequested['fname'], 'EMAIL' => $dateRequested['email'],
-                      'SUBJECT' => $dateRequested['subject'],
-                      'MESSAGE' => $dateRequested['message']], TRUE);
+            SendInBlueApi::sendinBlueEmail([$dateRequested['email']], 2,
+                ['SOBRENOME' => $dateRequested['lname'], 'NOME' => $dateRequested['fname'], 'EMAIL' => $dateRequested['email'],
+                    'SUBJECT' => $dateRequested['subject'],
+                    'MESSAGE' => $dateRequested['message']], TRUE);
 
         }
         return back()->with('success', ('app.contacted_sucess_email_send_via_teamplete'));
+    }
+
+
+    // Store Contact Form data
+    public function newseltter(Request $request)
+    {
+
+        $dateRequested = $request->all();
+        $sub = SendInBlueApi::storeEmail([$dateRequested['email']]);
+        return $sub ? back()->with('success-sub', ('app.you_sub_is_ok')) : back()->with('error-sub', ('app.exists'));
     }
 
 }

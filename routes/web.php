@@ -14,15 +14,22 @@
 //MARKETING WEB-SITE
 Route::get('/', [\App\Http\Controllers\Marketing\MarketingController::class, 'index']);
 
+
 // OVERRIDE ACTIONS FOR MY BUSSINESS LOGIC
 Route::get('register/{package?}', 'Auth\RegisterControllerOverride@showRegistrationForm')->name('backpack.auth.register');
 Route::post('register/{package?}', 'Auth\RegisterControllerOverride@register');
 Route::post('subscribe-newsletter', 'Auth\RegisterControllerOverride@newsletter');
-
 Route::post('/contact', [
     'uses' => 'ContactUsFormController@ContactUsForm',
     'as' => 'contact.store'
 ]);
+
+Route::post('/contact/newsletter', [
+    'uses' => 'ContactUsFormController@newseltter',
+    'as' => 'contact.newsletter'
+]);
+
+//Route::get('/{page}?}', 'Auth\RegisterControllerOverride@showRegistrationForm')->name('backpack.auth.register');
 
 
 

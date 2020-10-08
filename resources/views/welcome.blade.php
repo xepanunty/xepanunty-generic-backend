@@ -73,11 +73,13 @@ $isPortugal = env('APP_LOCAL') === "PT";
                             <li><a href="/store" class="nav-link">{{ trans('app.store') }}</a></li>
                             <li><a href="#blog-section" class="nav-link">{{ trans('app.blog') }}</a></li>
                             <li><a href="#contact-section" class="nav-link">{{ trans('app.contact') }}</a></li>
-                            <li class="social"><a href="#contact-section" class="nav-link"><span
+
+
+                            <li class="social"><a href="https://www.facebook.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="nav-link"><span
                                             class="icon-facebook"></span></a></li>
-                            <li class="social"><a href="#contact-section" class="nav-link"><span
+                            <li class="social"><a href="https://www.instagram.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="nav-link"><span
                                             class="icon-instagram"></span></a></li>
-                            <li class="social"><a href="#contact-section" class="nav-link"><span
+                            <li class="social"><a href="https://www.linkedin.com/in/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="nav-link"><span
                                             class="icon-linkedin"></span></a></li>
                             @auth
                                 <a class="btn btn-primary text-black" type="button"
@@ -678,7 +680,7 @@ $isPortugal = env('APP_LOCAL') === "PT";
         <div class="container">
             <h2 class="text-black mb-3">{{ trans('app.join') }}</h2>
             <p class="mb-5">{{ trans('app.focus') }}</p>
-            <p><a href="#" class="btn btn-primary">{{ trans('app.request_demo') }}</a></p>
+            <p><a href="/register" class="btn btn-primary">{{ trans('app.request_demo') }}</a></p>
         </div>
     </div>
 
@@ -694,42 +696,52 @@ $isPortugal = env('APP_LOCAL') === "PT";
                         <div class="col-md-3 ml-auto">
                             <h2 class="footer-heading mb-4">{{ trans('app.links') }}</h2>
                             <ul class="list-unstyled">
-                                <li><a href="#about-section" class="smoothscroll">{{ trans('app.Terms') }}</a></li>
-                                <li><a href="#about-section" class="smoothscroll">{{ trans('app.Policy') }}</a></li>
-                                <li><a href="#about-section" class="smoothscroll">{{ trans('app.About') }}</a></li>
-                                <li><a href="#services-section" class="smoothscroll">{{ trans('app.Services') }}</a>
+                                <li><a href="/static/terms" class="smoothscroll">{{ trans('app.Terms') }}</a></li>
+                                <li><a href="/static/policy" class="smoothscroll">{{ trans('app.Policy') }}</a></li>
+                                <li><a href="/static/about-us" class="smoothscroll">{{ trans('app.About') }}</a></li>
+                                <li><a href="/static/services" class="smoothscroll">{{ trans('app.Services') }}</a>
                                 </li>
-                                <li><a href="#testimonials-section"
+                                <li><a href="/static/testimonials"
                                        class="smoothscroll">{{ trans('app.Testimonials') }}</a></li>
-                                <li><a href="#contact-section" class="smoothscroll">{{ trans('app.Contact') }}</a></li>
+                                <li><a href="/static/contacts" class="smoothscroll">{{ trans('app.Contact') }}</a></li>
                                 <li><a href="{{ backpack_url() }}" class="smoothscroll">{{ trans('app.Login') }}</a>
                                 </li>
-                                <li><a href="#about-section" class="smoothscroll">{{ trans('app.GDPR') }}</a></li>
-                                <li><a href="#about-section" class="smoothscroll">{{ trans('app.licence') }}</a></li>
+                                <li><a href="/static/GDPR" class="smoothscroll">{{ trans('app.GDPR') }}</a></li>
+                                <li><a href="/static/licence" class="smoothscroll">{{ trans('app.licence') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 footer-social">
                             <h2 class="footer-heading mb-4">{{ trans('app.FollowUs') }}</h2>
-                            <a href="#" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                            <a href="#" class="pl-3 pr-3"><span class="icon-twitter"></span></a>
-                            <a href="#" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                            <a href="#" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
+                            <a href="https://www.facebook.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
+                            <a href="https://www.instagram.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
+                            <a href="https://www.linkedin.com/in/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3">
+                <div class="col-md-3" id="newsletter-section">
                     <h2 class="footer-heading mb-4">{{ trans('app.SubscribeNewsletter') }}</h2>
-                    <form action="#" method="post" class="footer-subscribe">
+                    <form method="post" action="{{ route('contact.newsletter', '#newsletter-section') }}" class="footer-subscribe">
+                        @csrf
                         <div class="input-group mb-3">
-                            <input type="text" class="form-control border-secondary bg-transparent"
+                            <input required type="email" name="email"  class="form-control border-secondary bg-transparent"
                                    placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
                             <div class="input-group-append">
-                                <button class="btn btn-primary text-black" type="button"
+                                <button class="btn btn-primary text-black" type="submit"
                                         id="button-addon2">{{ trans('app.send') }}
                                 </button>
                             </div>
                         </div>
                     </form>
+                    @if(Session::has('success-sub'))
+                        <div class="alert alert-success">
+                            {{Session::get('success-sub')}}
+                        </div>
+                    @endif
+                    @if(Session::has('error-sub'))
+                        <div class="alert alert-danger">
+                            {{Session::get('error-sub')}}
+                        </div>
+                    @endif
                 </div>
             </div>
             <div class="row pt-5 mt-5 text-center">

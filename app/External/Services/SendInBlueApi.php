@@ -29,6 +29,38 @@ class SendInBlueApi
     ];
 
 
+    /**
+     * Email store
+     * @throws \SendinBlue\Client\ApiException
+     */
+    public static function storeEmail($emailContact)
+    {
+        // send in blue API
+        $config = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', env('YOUR_API_KEY_SEND_IN_BLUE'));
+
+        $apiInstance = new \SendinBlue\Client\Api\AccountApi(
+            new \GuzzleHttp\Client(),
+            $config
+        );
+        try {
+            $result = $apiInstance->getAccount();
+        } catch (Exception $e) {
+            echo 'Exception when calling AccountApi->getAccount: ', $e->getMessage(), PHP_EOL;
+        }
+
+        // IN CASE IS MULTIPLE EMAILS
+        $api_instance = new  \SendinBlue\Client\Api\ContactsApi(new \GuzzleHttp\Client(), $config);
+        foreach ($emailContact as $key => $email) {
+            $create_contact = new \SendinBlue\Client\Model\CreateContact(['email' => $email]); // see more if necessary
+            try {
+                $result = $api_instance->createContact($create_contact);
+            } catch (\Exception $e) {
+                return false;
+            }
+        }
+        return true;
+    }
+
 
 
     /**
