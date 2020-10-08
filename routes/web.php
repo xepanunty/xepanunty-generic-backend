@@ -12,7 +12,7 @@
 */
 
 //MARKETING WEB-SITE
-Route::get('/', [\App\Http\Controllers\Marketing\MarketingController::class, 'index']);
+Route::get('/', [\App\Http\Controllers\Marketing\MarketingController::class, 'index'])->name('base');
 Route::get('/store', [\App\Http\Controllers\Marketing\MarketingController::class, 'store']);
 Route::get('/static/{static?}', '\App\Http\Controllers\Marketing\MarketingController@static');
 Route::post('/static/{static?}', '\App\Http\Controllers\Marketing\MarketingController@static');

@@ -55,12 +55,12 @@ $isPortugal = env('APP_LOCAL') === "PT";
                              alt="{{ trans('app.logo') }}"/>
                     </div>
                 </div>
-
+<!--https://laracasts.com/discuss/channels/laravel/jumping-to-an-anchor-tag-in-routes-->
                 <div class="col-12 col-md-10 d-none d-xl-block">
                     <nav class="site-navigation position-relative text-right" style="margin-right: -20px;"
                          role="navigation">
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li><a href="#home-section" class="nav-link">{{ trans('app.home') }}</a></li>
+                            <li><a href="{{route('base')}}/#home-section" class="nav-link">{{ trans('app.home') }}</a></li>
                             <li>
                                 <a href="#features-section" class="nav-link">{{ trans('app.features') }}</a>
                             </li>
