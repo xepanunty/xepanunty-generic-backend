@@ -24,6 +24,15 @@ $isPortugal = env('APP_LOCAL') === "PT";
     <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select-country.min.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/'.$country.'/style.css') }}">
 
+    <link rel="stylesheet" href="//unpkg.com/bootstrap@3.3.7/dist/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-select@1.12.4/dist/css/bootstrap-select.min.css" type="text/css" />
+    <link rel="stylesheet" href="//unpkg.com/bootstrap-select-country@4.0.0/dist/css/bootstrap-select-country.min.css" type="text/css" />
+
+    <script src="//unpkg.com/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="//unpkg.com/bootstrap@3.3.7/dist/js/bootstrap.min.js"></script>
+    <script src="//unpkg.com/bootstrap-select@1.12.4/dist/js/bootstrap-select.min.js"></script>
+    <script src="//unpkg.com/bootstrap-select-country@4.0.0/dist/js/bootstrap-select-country.min.js"></script>
+
 </head>
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
 
@@ -91,14 +100,14 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                 <a class="btn btn-primary" href="admin/dashboard" type="button">{{ trans('app.login') }}
                                 </a>
                             @endauth
-                            @if(!$isPortugal)
-                                <li>
-                                    <select class="selectpicker countrypicker" data-default="LU"
-                                            data-countries="PT,GB,FR,DE,LU"></select>
-                                </li>
-                            @endif
                         </ul>
                     </nav>
+                    @if(!$isPortugal)
+                        <div>
+                            <select class="selectpicker countrypicker" data-default="LU"
+                                    data-flag="true"  data-text="false" data-countries="PT,GB,FR,DE,LU"></select>
+                        </div>
+                    @endif
                 </div>
                 <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a
                             href="#" class="site-menu-toggle js-menu-toggle float-right"><span
