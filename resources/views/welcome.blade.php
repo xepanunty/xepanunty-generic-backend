@@ -1,108 +1,6 @@
-<!DOCTYPE html>
-<?php
-// change styles and logo, based on the logo
-$country = env('APP_LOCAL') === "PT" ? "pt" : "lu";
-$isPortugal = env('APP_LOCAL') === "PT";
-?>
+@extends('layouts.app')
 
-<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
-<head>
-    <title>{{ trans('app.title') }}</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('assets/fonts/icomoon/style.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/'.$country.'/bootstrap.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/jquery-ui.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.carousel.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/owl.theme.default.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/jquery.fancybox.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-datepicker.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/fonts/flaticon/font/flaticon.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/aos.css') }}">
-
-    <link rel="stylesheet" href="{{ asset('assets/css/bootstrap-select-country.min.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/'.$country.'/style.css') }}">
-
-</head>
-<body data-spy="scroll" data-target=".site-navbar-target" data-offset="300">
-
-
-<div id="overlayer"></div>
-<div class="loader">
-    <div class="spinner-border text-primary" role="status">
-        <span class="sr-only">{{ trans('app.loading') }}</span>
-    </div>
-</div>
-
-
-<div class="site-wrap">
-
-    <div class="site-mobile-menu site-navbar-target">
-        <div class="site-mobile-menu-header">
-            <div class="site-mobile-menu-close mt-3">
-                <span class="icon-close2 js-menu-toggle"></span>
-            </div>
-        </div>
-        <div class="site-mobile-menu-body"></div>
-    </div>
-
-
-    <header class="site-navbar js-sticky-header site-navbar-target" role="banner">
-
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-6 col-xl-2">
-                    <div class="mb-0 mr-10">
-                        <img class="mb-0 site-logo" src="{{
-   $isPortugal ? asset('assets/logo/income_pt.png') : asset('assets/logo/income_lu.png')}}"
-                             alt="{{ trans('app.logo') }}"/>
-                    </div>
-                </div>
-
-                <div class="col-12 col-md-10 d-none d-xl-block">
-                    <nav class="site-navigation position-relative text-right" style="margin-right: -20px;"
-                         role="navigation">
-                        <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
-                            <li><a href="#home-section" class="nav-link">{{ trans('app.home') }}</a></li>
-                            <li>
-                                <a href="#features-section" class="nav-link">{{ trans('app.features') }}</a>
-                            </li>
-                            <li><a href="#pricing-section" class="nav-link">{{ trans('app.pricing') }}</a></li>
-
-                            <li><a href="/store" class="nav-link">{{ trans('app.store') }}</a></li>
-                            <li><a href="#blog-section" class="nav-link">{{ trans('app.blog') }}</a></li>
-                            <li><a href="#contact-section" class="nav-link">{{ trans('app.contact') }}</a></li>
-
-
-                            <li class="social"><a href="https://www.facebook.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="nav-link"><span
-                                            class="icon-facebook"></span></a></li>
-                            <li class="social"><a href="https://www.instagram.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="nav-link"><span
-                                            class="icon-instagram"></span></a></li>
-                            <li class="social"><a href="https://www.linkedin.com/in/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="nav-link"><span
-                                            class="icon-linkedin"></span></a></li>
-                            @auth
-                                <a class="btn btn-primary text-black" type="button"
-                                   href="admin/dashboard">{{ trans('app.admin') }}
-                                </a>
-                            @else
-                                <a class="btn btn-primary" href="admin/dashboard" type="button">{{ trans('app.login') }}
-                                </a>
-                            @endauth
-                            @if(!$isPortugal)
-                            <li>
-                                <select class="selectpicker countrypicker" data-default="LU" data-countries="PT,GB,FR,DE,LU" ></select>
-                            </li>
-                            @endif
-                        </ul>
-                    </nav>
-                </div>
-                <div class="col-6 d-inline-block d-xl-none ml-md-0 py-3" style="position: relative; top: 3px;"><a
-                            href="#" class="site-menu-toggle js-menu-toggle float-right"><span
-                                class="icon-menu h3 text-black"></span></a></div>
-            </div>
-        </div>
-    </header>
+@section('content')
     <div class="site-section hero" id="home-section">
         <div class="container text-center">
             <div class="row justify-content-center text-center">
@@ -118,8 +16,6 @@ $isPortugal = env('APP_LOCAL') === "PT";
             </div>
         </div>
     </div>
-
-
     <div class="site-section pt-0" id="features-section">
         <div class="container">
             <div class="row">
@@ -304,7 +200,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
 
                     <blockquote class="mb-5">
                         <p>&ldquo;Far far away, behind the word mountains, far from the countries Vokalia and
-                            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the
+                            Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at
+                            the
                             coast of the Semantics, a large language ocean.&rdquo;</p>
                     </blockquote>
 
@@ -320,7 +217,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
 
                     <blockquote class="mb-5">
                         <p>&ldquo;A small river named Duden flows by their place and supplies it with the necessary
-                            regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your
+                            regelialia. It is a paradisematic country, in which roasted parts of sentences fly into
+                            your
                             mouth.&rdquo;</p>
                     </blockquote>
                     <figure class="mb-4 d-flex align-items-center justify-content-center">
@@ -336,8 +234,10 @@ $isPortugal = env('APP_LOCAL') === "PT";
                 <div class="testimonial">
 
                     <blockquote class="mb-5">
-                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an almost
-                            unorthographic life One day however a small line of blind text by the name of Lorem Ipsum
+                        <p>&ldquo;Even the all-powerful Pointing has no control about the blind texts it is an
+                            almost
+                            unorthographic life One day however a small line of blind text by the name of Lorem
+                            Ipsum
                             decided to leave for the far World of Grammar.&rdquo;</p>
                     </blockquote>
                     <figure class="mb-4 d-flex align-items-center justify-content-center">
@@ -354,7 +254,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
                 <div class="testimonial">
 
                     <blockquote class="mb-5">
-                        <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad Commas,
+                        <p>&ldquo;The Big Oxmox advised her not to do so, because there were thousands of bad
+                            Commas,
                             wild Question Marks and devious Semikoli, but the Little Blind Text didn’t listen. She
                             packed her seven versalia, put her initial into the belt and made herself on the
                             way.&rdquo;</p>
@@ -407,7 +308,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                 <del>Gestao de parceiros</del>
                             </li>
                         </ul>
-                        <p><a href="register/free" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
+                        <p><a href="register/free"
+                              class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
                         </p>
                     </div>
                 </div>
@@ -437,7 +339,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                 <del>Gestao de parceiros</del>
                             </li>
                         </ul>
-                        <p><a href="register/starter" class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
+                        <p><a href="register/starter"
+                              class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
                         </p>
                     </div>
                 </div>
@@ -593,7 +496,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
                             {{Session::get('success')}}
                         </div>
                     @endif
-                    <form method="post" action="{{ route('contact.store', '#contact-section') }}" class="p-5 bg-white">
+                    <form method="post" action="{{ route('contact.store', '#contact-section') }}"
+                          class="p-5 bg-white">
                         <!-- CROSS Site Request Forgery Protection -->
                         @csrf
 
@@ -602,7 +506,9 @@ $isPortugal = env('APP_LOCAL') === "PT";
                         <div class="row form-group">
                             <div class="col-md-6 mb-3 mb-md-0">
                                 <label class="text-black" for="fname">{{ trans('app.fristname') }}</label>
-                                <input required type="text" class="form-control {{ $errors->has('fname') ? 'error' : '' }}" name="fname" id="fname">
+                                <input required type="text"
+                                       class="form-control {{ $errors->has('fname') ? 'error' : '' }}" name="fname"
+                                       id="fname">
                                 <!-- Error -->
                                 @if ($errors->has('fname'))
                                     <div class="text-danger">
@@ -612,7 +518,9 @@ $isPortugal = env('APP_LOCAL') === "PT";
                             </div>
                             <div class="col-md-6">
                                 <label class="text-black" for="lname">{{ trans('app.lastname') }}</label>
-                                <input required type="text"  class="form-control {{ $errors->has('lname') ? 'error' : '' }}" name="lname" id="lname">
+                                <input required type="text"
+                                       class="form-control {{ $errors->has('lname') ? 'error' : '' }}" name="lname"
+                                       id="lname">
                                 @if ($errors->has('lname'))
                                     <div class="text-danger">
                                         {{ $errors->first('lname') }}
@@ -625,7 +533,9 @@ $isPortugal = env('APP_LOCAL') === "PT";
 
                             <div class="col-md-12">
                                 <label class="text-black" for="email">{{ trans('app.email_contact') }}</label>
-                                <input required type="email" class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email" id="email">
+                                <input required type="email"
+                                       class="form-control {{ $errors->has('email') ? 'error' : '' }}" name="email"
+                                       id="email">
                                 @if ($errors->has('email'))
                                     <div class="text-danger">
                                         {{ $errors->first('email') }}
@@ -638,7 +548,9 @@ $isPortugal = env('APP_LOCAL') === "PT";
 
                             <div class="col-md-12">
                                 <label class="text-black" for="subject">{{ trans('app.subject') }}</label>
-                                <input required type="text" class="form-control {{ $errors->has('subject') ? 'error' : '' }}" name="subject"
+                                <input required type="text"
+                                       class="form-control {{ $errors->has('subject') ? 'error' : '' }}"
+                                       name="subject"
                                        id="subject">
                                 @if ($errors->has('subject'))
                                     <div class="text-danger">
@@ -652,7 +564,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
                             <div class="col-md-12">
                                 <label class="text-black" for="message">{{ trans('app.message') }}</label>
 
-                                <textarea required class="form-control {{ $errors->has('message') ? 'error' : '' }}" name="message" id="message" cols="30" rows="7"
+                                <textarea required class="form-control {{ $errors->has('message') ? 'error' : '' }}"
+                                          name="message" id="message" cols="30" rows="7"
                                           placeholder="{{ trans('app.message_notes') }}"></textarea>
 
                                 @if ($errors->has('message'))
@@ -666,7 +579,7 @@ $isPortugal = env('APP_LOCAL') === "PT";
                         <div class="row form-group">
                             <div class="col-md-12">
                                 <input type="submit" value="{{ trans('app.send_message') }}"
-                                       name="send"  class="btn btn-primary btn-md text-white">
+                                       name="send" class="btn btn-primary btn-md text-white">
                             </div>
                         </div>
                     </form>
@@ -683,98 +596,25 @@ $isPortugal = env('APP_LOCAL') === "PT";
             <p><a href="/register" class="btn btn-primary">{{ trans('app.request_demo') }}</a></p>
         </div>
     </div>
-
-    <footer class="site-footer bg-light">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-9">
-                    <div class="row">
-                        <div class="col-md-5">
-                            <h2 class="footer-heading mb-4">{{ trans('app.about_us') }}</h2>
-                            <p>{{ trans('app.about_us_desc') }}</p>
-                        </div>
-                        <div class="col-md-3 ml-auto">
-                            <h2 class="footer-heading mb-4">{{ trans('app.links') }}</h2>
-                            <ul class="list-unstyled">
-                                <li><a href="/static/terms" class="smoothscroll">{{ trans('app.Terms') }}</a></li>
-                                <li><a href="/static/policy" class="smoothscroll">{{ trans('app.Policy') }}</a></li>
-                                <li><a href="/static/about-us" class="smoothscroll">{{ trans('app.About') }}</a></li>
-                                <li><a href="/static/services" class="smoothscroll">{{ trans('app.Services') }}</a>
-                                </li>
-                                <li><a href="/static/testimonials"
-                                       class="smoothscroll">{{ trans('app.Testimonials') }}</a></li>
-                                <li><a href="/static/contacts" class="smoothscroll">{{ trans('app.Contact') }}</a></li>
-                                <li><a href="{{ backpack_url() }}" class="smoothscroll">{{ trans('app.Login') }}</a>
-                                </li>
-                                <li><a href="/static/GDPR" class="smoothscroll">{{ trans('app.GDPR') }}</a></li>
-                                <li><a href="/static/licence" class="smoothscroll">{{ trans('app.licence') }}</a></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-3 footer-social">
-                            <h2 class="footer-heading mb-4">{{ trans('app.FollowUs') }}</h2>
-                            <a href="https://www.facebook.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="pl-0 pr-3"><span class="icon-facebook"></span></a>
-                            <a href="https://www.instagram.com/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="pl-3 pr-3"><span class="icon-instagram"></span></a>
-                            <a href="https://www.linkedin.com/in/{{$isPortugal ? 'INCOMEPORTUGAL' : 'INCOMELUXEMBOURG' }}" target="_blank" class="pl-3 pr-3"><span class="icon-linkedin"></span></a>
-                        </div>
-                    </div>
+    <!-- Modal -->
+    <!--<div wire:ignore.self class="modal fade" id="exampleModal" tabindex="-1" role="dialog"
+         aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true close-btn">×</span>
+                    </button>
                 </div>
-                <div class="col-md-3" id="newsletter-section">
-                    <h2 class="footer-heading mb-4">{{ trans('app.SubscribeNewsletter') }}</h2>
-                    <form method="post" action="{{ route('contact.newsletter', '#newsletter-section') }}" class="footer-subscribe">
-                        @csrf
-                        <div class="input-group mb-3">
-                            <input required type="email" name="email"  class="form-control border-secondary bg-transparent"
-                                   placeholder="Enter Email" aria-label="Enter Email" aria-describedby="button-addon2">
-                            <div class="input-group-append">
-                                <button class="btn btn-primary text-black" type="submit"
-                                        id="button-addon2">{{ trans('app.send') }}
-                                </button>
-                            </div>
-                        </div>
-                    </form>
-                    @if(Session::has('success-sub'))
-                        <div class="alert alert-success">
-                            {{Session::get('success-sub')}}
-                        </div>
-                    @endif
-                    @if(Session::has('error-sub'))
-                        <div class="alert alert-danger">
-                            {{Session::get('error-sub')}}
-                        </div>
-                    @endif
-                </div>
-            </div>
-            <div class="row pt-5 mt-5 text-center">
-                <div class="col-md-12">
-                    <div class="border-top pt-5">
-                        <p class="copyright"><small>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                                Copyright &copy;<script>document.write(new Date().getFullYear());</script>
-                                All rights reserved | Created by <i class="icon-heart text-danger"
-                                                                    aria-hidden="true"></i> by <a
-                                        href="https://xepanunty.com" target="_blank">Xepanunty software services</a>
-                                <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-                            </small></p>
+                <div class="modal-body">
 
-                    </div>
                 </div>
-
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary close-btn" data-dismiss="modal">Close</button>
+                </div>
             </div>
         </div>
-    </footer>
-</div> <!-- .site-wrap -->
-<script src="{{ asset('assets/js/jquery-3.3.1.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery-ui.js') }}"></script>
-<script src="{{ asset('assets/js/popper.min.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('assets/js/owl.carousel.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.countdown.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.easing.1.3.js') }}"></script>
-<script src="{{ asset('assets/js/aos.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.fancybox.min.js') }}"></script>
-<script src="{{ asset('assets/js/jquery.sticky.js') }}"></script>
-<script src="{{ asset('assets/js/isotope.pkgd.min.js') }}"></script>
-<script src="{{ asset('assets/js/main.js') }}"></script>
-<script src="{{ asset('assets/js/bootstrap-select-country.min.js') }}"></script>
-</body>
-</html>
+        data-toggle="modal" data-target="#exampleModal" -> use
+    </div> -->
+@endsection
