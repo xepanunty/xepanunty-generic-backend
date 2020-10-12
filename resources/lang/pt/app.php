@@ -114,5 +114,6 @@ pode personalizar o seu logotipo - a nossa equipa cria um para si',
     "GDPR" => "GDPR",
     "licence" => "Licenca",
     "team" => "Junte-se à nossa equipa",
-    "FAQs" => "FAQs"
+    "FAQs" => "FAQs",
+    "SubscribeNewsletter" => "Seja o primeiro a saber todas as novidades e campanhas."
 ];

@@ -38,7 +38,8 @@ class MarketingController extends Controller
              }
              if ($pageSel && !empty($existsInDatabase)) {
                  // open modal with opage content
-                 return view('static');
+                 $page = $existsInDatabase;
+                 return view('static', compact('page'));
              }
             return redirect(url('/'));
         }

@@ -71,13 +71,13 @@ $isPortugal = env('APP_LOCAL') === "PT";
                         <ul class="site-menu main-menu js-clone-nav mr-auto d-none d-lg-block">
                             <li><a href="{{route('base')}}/#home-section" class="nav-link">{{ trans('app.home') }}</a></li>
                             <li>
-                                <a href="#features-section" class="nav-link">{{ trans('app.features') }}</a>
+                                <a href="{{route('base')}}/#features-section" class="nav-link">{{ trans('app.features') }}</a>
                             </li>
-                            <li><a href="#pricing-section" class="nav-link">{{ trans('app.pricing') }}</a></li>
+                            <li><a href="{{route('base')}}/#pricing-section" class="nav-link">{{ trans('app.pricing') }}</a></li>
 
                             <li><a href="/store" class="nav-link">{{ trans('app.store') }}</a></li>
-                            <li><a href="#blog-section" class="nav-link">{{ trans('app.blog') }}</a></li>
-                            <li><a href="#contact-section" class="nav-link">{{ trans('app.contact') }}</a></li>
+                            <li><a href="{{route('base')}}/#blog-section" class="nav-link">{{ trans('app.blog') }}</a></li>
+                            <li><a href="{{route('base')}}/#contact-section" class="nav-link">{{ trans('app.contact') }}</a></li>
 
 
                             <li class="social"><a
@@ -144,12 +144,12 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                        class="smoothscroll">{{ trans('app.claims') }}</a></li>
                                 <li><a href="/static/about"
                                        class="smoothscroll">{{ trans('app.About') }}</a></li>
-                                <li><a href="/#pricing-section"
+                                <li><a href="{{route('base')}}/#pricing-section"
                                        class="smoothscroll">{{ trans('app.Services') }}</a>
                                 </li>
-                                <li><a href="#testimonials-section"
+                                <li><a href="{{route('base')}}/#testimonials-section"
                                        class="smoothscroll">{{ trans('app.Testimonials') }}</a></li>
-                                <li><a href="#contact-section"
+                                <li><a href="{{route('base')}}/#contact-section"
                                        class="smoothscroll">{{ trans('app.Contact') }}</a></li>
                                 <li><a href="{{ backpack_url() }}" class="smoothscroll">{{ trans('app.Login') }}</a>
                                 </li>
