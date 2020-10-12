@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "bdcdf661e4cbd4d3945ebaffb032ee6f",
+    "content-hash": "88d6e294e68a45d470a423a3e6fe6e15",
     "packages": [
         {
             "name": "backpack/backupmanager",
@@ -1096,6 +1096,59 @@
             "time": "2020-04-07T03:18:54+00:00"
         },
         {
+            "name": "digitallyhappy/toggle-field-for-backpack",
+            "version": "2.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DigitallyHappy/toggle-field-for-backpack.git",
+                "reference": "a8874d33f69f13d1aa937b75077f245599df1a2e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DigitallyHappy/toggle-field-for-backpack/zipball/a8874d33f69f13d1aa937b75077f245599df1a2e",
+                "reference": "a8874d33f69f13d1aa937b75077f245599df1a2e",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DigitallyHappy\\ToggleFieldForBackpack\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DigitallyHappy\\ToggleFieldForBackpack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Cristian Tabacitu",
+                    "email": "hello@tabacitu.ro",
+                    "homepage": "https://tabacitu.ro"
+                }
+            ],
+            "description": "Easily toggle boolean attributes with a new field type.",
+            "homepage": "https://github.com/digitallyhappy/toggle-field-for-backpack",
+            "keywords": [
+                "Backpack for Laravel",
+                "addon",
+                "admin panel",
+                "backpack",
+                "laravel",
+                "toggle"
+            ],
+            "time": "2020-05-18T09:19:20+00:00"
+        },
+        {
             "name": "dnoegel/php-xdg-base-dir",
             "version": "v0.1.1",
             "source": {
@@ -1518,6 +1571,59 @@
                 "php"
             ],
             "time": "2020-05-25T17:44:05+00:00"
+        },
+        {
+            "name": "dodsoftware/dynamic-field-hints-for-backpack",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DoDSoftware/DynamicFieldHintsForBackpack.git",
+                "reference": "d52e99d8bdef577fbc35cc50046fa73df4321e0d"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DoDSoftware/DynamicFieldHintsForBackpack/zipball/d52e99d8bdef577fbc35cc50046fa73df4321e0d",
+                "reference": "d52e99d8bdef577fbc35cc50046fa73df4321e0d",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.1.0",
+                "php": "^7.2.5"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "DoDSoftware\\DynamicFieldHintsForBackpack\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DoDSoftware\\DynamicFieldHintsForBackpack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Wesley Smith",
+                    "email": "support@dodsoftware.com",
+                    "homepage": "https://dodsoftware.com"
+                }
+            ],
+            "description": "Easily add field hints to Backpack CRUD fields from database comments.",
+            "homepage": "https://github.com/DoDSoftware/DynamicFieldHintsForBackpack",
+            "keywords": [
+                "Backpack for Laravel",
+                "addon",
+                "admin panel",
+                "backpack",
+                "laravel"
+            ],
+            "time": "2020-09-14T10:35:26+00:00"
         },
         {
             "name": "dragonmantank/cron-expression",
@@ -2291,6 +2397,59 @@
                 "payment method"
             ],
             "time": "2020-06-05T13:05:15+00:00"
+        },
+        {
+            "name": "imokhles/signature-field-for-backpack",
+            "version": "1.0.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/iMokhles/signature-field-for-backpack.git",
+                "reference": "317eaef0f028ebb81f06ce0c13ab29026111414a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/iMokhles/signature-field-for-backpack/zipball/317eaef0f028ebb81f06ce0c13ab29026111414a",
+                "reference": "317eaef0f028ebb81f06ce0c13ab29026111414a",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "iMokhles\\SignatureFieldForBackpack\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "iMokhles\\SignatureFieldForBackpack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Mokhlas Hussein",
+                    "email": "mokhleshussien@aol.com",
+                    "homepage": "https://imokhles.com"
+                }
+            ],
+            "description": "Easily add signature field to backpack admin panel.",
+            "homepage": "https://github.com/imokhles/signature-field-for-backpack",
+            "keywords": [
+                "Backpack for Laravel",
+                "addon",
+                "admin panel",
+                "backpack",
+                "laravel",
+                "signature"
+            ],
+            "time": "2020-07-22T16:49:59+00:00"
         },
         {
             "name": "intervention/image",
@@ -4104,6 +4263,60 @@
                 "swagger"
             ],
             "time": "2020-09-14T07:33:18+00:00"
+        },
+        {
+            "name": "soufiene-slimi/star-field-for-backpack",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/soufiene-slimi/star-field-for-backpack.git",
+                "reference": "b390c37e227b1d477e68c83c286dbc73d892c5ca"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/soufiene-slimi/star-field-for-backpack/zipball/b390c37e227b1d477e68c83c286dbc73d892c5ca",
+                "reference": "b390c37e227b1d477e68c83c286dbc73d892c5ca",
+                "shasum": ""
+            },
+            "require": {
+                "backpack/crud": "^4.1.0"
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "SoufieneSlimi\\StarFieldForBackpack\\AddonServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "SoufieneSlimi\\StarFieldForBackpack\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Soufiene Slimi",
+                    "email": "soufiene.slimi@mail.com",
+                    "homepage": "https://github.com/soufiene-slimi"
+                }
+            ],
+            "description": "Easily rate items with stars using this new field type.",
+            "homepage": "https://github.com/soufiene-slimi/star-field-for-backpack",
+            "keywords": [
+                "Backpack for Laravel",
+                "Rate",
+                "addon",
+                "admin panel",
+                "backpack",
+                "laravel",
+                "star"
+            ],
+            "time": "2020-04-25T17:24:28+00:00"
         },
         {
             "name": "spatie/db-dumper",
