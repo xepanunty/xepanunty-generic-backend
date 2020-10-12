@@ -17,7 +17,7 @@ class MarketingController extends Controller
         $sessionKeys = Session::all();
         $dataKeys = array_keys($sessionKeys);
         foreach ($dataKeys as $keyLogin) {
-            if (strpos($keyLogin, 'login_backpack_') !== false) {
+            if (strpos($keyLogin, 'login_backpack_') !== false ||strpos($keyLogin, 'login_web_') !== false ) {
                return redirect("admin/dashboard");
             }
         }
