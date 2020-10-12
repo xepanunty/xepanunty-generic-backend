@@ -1,5 +1,4 @@
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="nav-icon la la-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
-
 <li class="nav-item nav-dropdown">
     <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i> {{ trans('app.MarketingWebSite') }}</a>
     <ul class="nav-dropdown-items">
@@ -8,7 +7,6 @@
       <li class="nav-item"><a class="nav-link" href="{{ backpack_url('category') }}"><i class="nav-icon la la-list"></i> <span>{{ trans('app.Categories') }}</span></a></li>
     </ul>
 </li>
-
 <!-- Users, Roles Permissions -->
 <li class="nav-item nav-dropdown">
   <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-group"></i> {{ trans('app.Authentication') }}</a>
