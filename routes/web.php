@@ -21,6 +21,7 @@ Route::post('/static/{static?}', '\App\Http\Controllers\Marketing\MarketingContr
 Route::get('register/{package?}', 'Auth\RegisterControllerOverride@showRegistrationForm')->name('backpack.auth.register');
 Route::post('register/{package?}', 'Auth\RegisterControllerOverride@register');
 Route::post('subscribe-newsletter', 'Auth\RegisterControllerOverride@newsletter');
+
 Route::post('/contact', [
     'uses' => 'ContactUsFormController@ContactUsForm',
     'as' => 'contact.store'
