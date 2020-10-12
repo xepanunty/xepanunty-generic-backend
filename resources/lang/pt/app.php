@@ -115,5 +115,15 @@ pode personalizar o seu logotipo - a nossa equipa cria um para si',
     "licence" => "Licenca",
     "team" => "Junte-se à nossa equipa",
     "FAQs" => "FAQs",
-    "SubscribeNewsletter" => "Seja o primeiro a saber todas as novidades e campanhas."
+    "SubscribeNewsletter" => "Seja o primeiro a saber todas as novidades e campanhas.",
+    "Authentication" => "Utilizadores",
+    "Users" => "Empresas/Sales",
+    "Roles" => "Tipos Packages",
+    "Permissions" => "Permissões",
+    "Filemanager" => "Documentos",
+    "Settings" => "Configurações",
+    "MarketingWebSite" => "Frontend",
+    "Pages" => "Páginas",
+    'Articles' => 'Blog',
+    'Categories' => 'Blog Categorias'
 ];
