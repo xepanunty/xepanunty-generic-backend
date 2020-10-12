@@ -3,6 +3,7 @@
 namespace App\Http\Middleware;
 
 use Closure;
+use Illuminate\Support\Facades\Auth;
 
 class CheckIfAdmin
 {
@@ -52,13 +53,44 @@ class CheckIfAdmin
      */
     public function handle($request, Closure $next)
     {
+        if (! Auth::check()) {
+            return redirect()->guest(backpack_url('login'));
+        }
+
         if (backpack_auth()->guest()) {
             return $this->respondToUnauthorizedRequest($request);
         }
 
-        if (!$this->checkIfUserIsAdmin(backpack_user())) {
+        $user = backpack_user();
+
+        $routeName = $user->roles->get(0)->name;
+
+        if (!in_array($routeName,
+                ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "USER-SALES"])) {
             return $this->respondToUnauthorizedRequest($request);
         }
+
+        /*switch ($routeName) {
+            case 'SUPERADMIN-XEPANUNTY' :
+                //return redirect()->route(backpack_url('dashboard'));
+                break;
+            case 'PROFESSIONAL' :
+                return redirect()->route('professional');
+                break;
+            case 'STARTER' :
+                break;
+                return redirect()->route('starter');
+            case 'FREE' :
+                return redirect()->route('free');
+                break;
+            case 'ENTERPRISE' :
+                return redirect()->route('enterprise');
+                break;
+            case 'USER-SALES' :
+                return redirect()->route('sale');
+                break;
+        }*/
+
 
         return $next($request);
     }

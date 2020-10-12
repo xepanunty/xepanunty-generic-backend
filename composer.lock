@@ -457,16 +457,16 @@
         },
         {
             "name": "backpack/permissionmanager",
-            "version": "6.0.1",
+            "version": "6.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/Laravel-Backpack/PermissionManager.git",
-                "reference": "9a757c8d406f33393d4fece9f8b69649573ec33d"
+                "reference": "2cd6d24b87a3f93da8ab054bef6c1816ac699424"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/9a757c8d406f33393d4fece9f8b69649573ec33d",
-                "reference": "9a757c8d406f33393d4fece9f8b69649573ec33d",
+                "url": "https://api.github.com/repos/Laravel-Backpack/PermissionManager/zipball/2cd6d24b87a3f93da8ab054bef6c1816ac699424",
+                "reference": "2cd6d24b87a3f93da8ab054bef6c1816ac699424",
                 "shasum": ""
             },
             "require": {
@@ -518,8 +518,6 @@
                 "backpack permission",
                 "backpack roles",
                 "backpack user management",
-                "dick",
-                "dick permission",
                 "laravel backpack",
                 "manage permission",
                 "manage roles",
@@ -528,7 +526,7 @@
                 "updivision",
                 "users roles admin"
             ],
-            "time": "2020-05-08T09:03:20+00:00"
+            "time": "2020-09-24T18:44:45+00:00"
         },
         {
             "name": "backpack/revise-operation",
