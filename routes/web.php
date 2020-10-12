@@ -17,9 +17,6 @@ Route::get('/store', [\App\Http\Controllers\Marketing\MarketingController::class
 Route::get('/static/{static?}', '\App\Http\Controllers\Marketing\MarketingController@static');
 Route::post('/static/{static?}', '\App\Http\Controllers\Marketing\MarketingController@static');
 
-
-
-
 // OVERRIDE ACTIONS FOR MY BUSSINESS LOGIC
 Route::get('register/{package?}', 'Auth\RegisterControllerOverride@showRegistrationForm')->name('backpack.auth.register');
 Route::post('register/{package?}', 'Auth\RegisterControllerOverride@register');
@@ -34,11 +31,9 @@ Route::post('/contact/newsletter', [
     'as' => 'contact.newsletter'
 ]);
 
-//Route::get('/{page}?}', 'Auth\RegisterControllerOverride@showRegistrationForm')->name('backpack.auth.register');
-
-
 
 Route::get('dashboard', 'AdminControllerOverride@dashboard')->name('backpack.dashboard'); // see latter
+
 
 if (app('env') !== 'production') {
 
