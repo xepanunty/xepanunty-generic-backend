@@ -130,18 +130,26 @@ $isPortugal = env('APP_LOCAL') === "PT";
                         <div class="col-md-3 ml-auto">
                             <h2 class="footer-heading mb-4">{{ trans('app.links') }}</h2>
                             <ul class="list-unstyled">
+                                <li><a href="/static/faqs"
+                                       class="smoothscroll">{{ trans('app.FAQs') }}</a></li>
                                 <li><a href="/static/terms"
                                        class="smoothscroll">{{ trans('app.Terms') }}</a></li>
                                 <li><a href="/static/policy"
                                        class="smoothscroll">{{ trans('app.Policy') }}</a></li>
-                                <li><a href="/static/about-us"
+                                <li><a href="/static/cookies"
+                                       class="smoothscroll">{{ trans('app.cookies') }}</a></li>
+                                <li><a href="/static/refound"
+                                       class="smoothscroll">{{ trans('app.refound') }}</a></li>
+                                <li><a href="/static/claims"
+                                       class="smoothscroll">{{ trans('app.claims') }}</a></li>
+                                <li><a href="/static/about"
                                        class="smoothscroll">{{ trans('app.About') }}</a></li>
-                                <li><a href="/static/services"
+                                <li><a href="/#pricing-section"
                                        class="smoothscroll">{{ trans('app.Services') }}</a>
                                 </li>
-                                <li><a href="/static/testimonials"
+                                <li><a href="#testimonials-section"
                                        class="smoothscroll">{{ trans('app.Testimonials') }}</a></li>
-                                <li><a href="/static/contacts"
+                                <li><a href="#contact-section"
                                        class="smoothscroll">{{ trans('app.Contact') }}</a></li>
                                 <li><a href="{{ backpack_url() }}" class="smoothscroll">{{ trans('app.Login') }}</a>
                                 </li>
@@ -149,6 +157,8 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                        class="smoothscroll">{{ trans('app.GDPR') }}</a></li>
                                 <li><a href="/static/licence"
                                        class="smoothscroll">{{ trans('app.licence') }}</a></li>
+                                <li><a href="/static/team"
+                                       class="smoothscroll">{{ trans('app.team') }}</a></li>
                             </ul>
                         </div>
                         <div class="col-md-3 footer-social">

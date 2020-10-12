@@ -110,8 +110,9 @@ class SendInBlueApi
             ];
         }
         if ($internal) {
+            // check why the email is not sent+
             $data['replyTo'] =  "xepanunty@gmail.com";
-            $data['emailCc'] =  "xepanunty+contact@gmail.com";
+           // $data['emailCc'] =  "xepanunty+contact@gmail.com";
         }
         try {
             $apiInstance = new  \SendinBlue\Client\Api\TransactionalEmailsApi(
