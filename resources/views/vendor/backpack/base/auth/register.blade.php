@@ -58,7 +58,7 @@ $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
                             <label class="control-label" for="name">{{ trans('app.package') }}</label>
 
                             <div>
-                                <select  {{$selectedPackage !== "FREE" ? 'disabled' : '' }} name="package" id="package"  class="form-control{{ $errors->has('package') ? ' is-invalid' : '' }}">
+                                <select  {{$selectedPackage !== "FREE" ? 'readonly' : '' }} name="package" id="package"  class="form-control{{ $errors->has('package') ? ' is-invalid' : '' }}">
                                     <option value="FREE" {{$selectedPackage == "FREE" ? 'selected' : '' }}>{{trans('app.FREE') }}</option>
                                     <option value="STARTER" {{$selectedPackage == "STARTER" ? 'selected' : '' }}>{{trans('app.STARTER') }}</option>
                                     <option value="PROFESSIONAL" {{$selectedPackage == "PROFESSIONAL" ? 'selected' : '' }}>{{trans('app.PROFESSIONAL') }}</option>

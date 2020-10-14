@@ -35,6 +35,7 @@ class RegisterControllerOverride extends RegisterController
         $user = new $user_model_fqn();
         $users_table = $user->getTable();
         $email_validation = backpack_authentication_column() == 'email' ? 'email|' : '';
+
         $validator =  Validator::make($data, [
             'nif' => ["required", 'integer', "digits_between:9,9", 'unique:users',  $this->nif],
             'name'                             => 'required|max:80',
@@ -63,14 +64,13 @@ class RegisterControllerOverride extends RegisterController
         $user_model_fqn = config('backpack.base.user_model_fqn');
         $user = new $user_model_fqn();
 
-
         return $user->create([
             'name'                             => $data['name'],
             backpack_authentication_column()   => $data[backpack_authentication_column()],
             'password'                         => bcrypt($data['password']),
             'nif'                             => $data['nif'],
             'phone'                             => $data['phone'],
-            'package'                             => $data['package'],
+          //  'package'                             => $data['package'],
             'email'                             => $data['email'],
             'terms_and_conditions'             => $data['terms_and_conditions'] == 'on' ? 1 : 0,
             'use_phone_in_transactions'             => $data['use_phone_in_transactions']  == 'on' ? 1 : 0,
@@ -97,7 +97,7 @@ class RegisterControllerOverride extends RegisterController
 
         $this->validator($request->all())->validate();
 
-
+        //dd($request->all()); die;
         $user = $this->create($request->all());
 
         event(new Registered($user));

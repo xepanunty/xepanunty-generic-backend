@@ -316,7 +316,7 @@
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
                     <div class="border p-5 text-center rounded">
                         <h3>Starter</h3>
-                        <div class="price mb-3"><sup class="currency"></sup><span class="number">10€</span> <span
+                        <div class="price mb-3"><sup class="currency"></sup><span class="number">11€</span> <span
                                     class="per">/MONTH</span></div>
                         <ul class="list-unstyled ul-check text-left success mb-5">
                             <li>15 Productos e servicos</li>
@@ -348,7 +348,7 @@
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
                     <div class="border p-5 text-center rounded">
                         <h3>Professional</h3>
-                        <div class="price mb-3"><sup class="currency"></sup><span class="number">20€</span> <span
+                        <div class="price mb-3"><sup class="currency"></sup><span class="number">22€</span> <span
                                     class="per">/MONTH</span></div>
                         <ul class="list-unstyled ul-check text-left success mb-5">
                             <li>Productos e servicos ilimitados</li>
@@ -379,7 +379,7 @@
                 <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
                     <div class="border p-5 text-center rounded">
                         <h3>Enterprise</h3>
-                        <div class="price mb-3"><sup class="currency"></sup><span class="number">40€</span> <span
+                        <div class="price mb-3"><sup class="currency"></sup><span class="number">43€</span> <span
                                     class="per">/MONTH</span></div>
                         <ul class="list-unstyled ul-check text-left success mb-5">
                             <li>Productos e servicos ilimitados</li>
