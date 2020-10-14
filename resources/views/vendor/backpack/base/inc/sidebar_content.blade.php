@@ -16,6 +16,7 @@ $user2->hasRole('writer');;
 
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dashboard') }}"><i class="nav-icon la la-dashboard"></i> <span>{{ trans('backpack::base.dashboard') }}</span></a></li>
 <?php if($role === "SUPERADMIN-XEPANUNTY") : ?>
+    <li class="nav-title">{{ trans('app.frontend_manager') }} </li>
     <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-newspaper-o"></i> {{ trans('app.MarketingWebSite') }}</a>
         <ul class="nav-dropdown-items">
@@ -24,7 +25,7 @@ $user2->hasRole('writer');;
           <li class="nav-item"><a class="nav-link" href="{{ backpack_url('category') }}"><i class="nav-icon la la-list"></i> <span>{{ trans('app.Categories') }}</span></a></li>
         </ul>
     </li>
-    <!-- Users, Roles Permissions -->
+    <li class="nav-title">{{ trans('app.application_parts') }} </li>
     <li class="nav-item nav-dropdown">
       <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-group"></i> {{ trans('app.Authentication') }}</a>
       <ul class="nav-dropdown-items">
@@ -39,22 +40,27 @@ $user2->hasRole('writer');;
     <li class="nav-item nav-dropdown">
         <a class="nav-link nav-dropdown-toggle" href="#"><i class="nav-icon la la-cogs"></i> Advanced</a>
         <ul class="nav-dropdown-items">
-          <li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon la la-files-o"></i> <span>File manager</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('backup') }}"><i class="nav-icon la la-hdd-o"></i> <span>Backups</span></a></li>
                 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('log') }}"><i class="nav-icon la la-terminal"></i> <span>Logs</span></a></li>
-          <li class="nav-item"><a class="nav-link" href="{{ backpack_url('setting') }}"><i class="nav-icon la la-cog"></i> <span>Settings</span></a></li>
         </ul>
     </li>
     <?php endif; ?>
 
+    <?php if($role === "SUPERADMIN-XEPANUNTY") : ?>
+    <li class="nav-title">{{ trans('app.product_app') }} </li>
+    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon la la-thumbs-up"></i> <span>{{ trans('app.manager_social_networks') }}</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('fluent-monster') }}"><i class="nav-icon lab la-buysellads"></i> <span>{{ trans('app.manager_ads_networks') }}</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon la la-shopping-cart"></i> <span>{{ trans('app.manager_store_products') }}</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dummy') }}"><i class="nav-icon las la-money-bill-wave"></i> <span>{{ trans('app.manager_payments') }}</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('invoices') }}"><i class="nav-icon las la-receipt"></i> <span>{{ trans('app.manager_invoices') }}</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('notifications') }}"><i class="nav-icon lar la-sticky-note"></i> <span>{{ trans('app.manager_notifications') }}</span></a></li>
+    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('support') }}"><i class="nav-icon las la-spinner"></i> <span>{{ trans('app.manager_support') }}</span></a></li>
+    <?php endif; ?>
     <?php if(false) : ?>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('menu-item') }}"><i class="nav-icon la la-list"></i> <span>Menu</span></a></li>
-    <li class="nav-title">Demo Entities</li>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('monster') }}"><i class="nav-icon la la-optin-monster"></i> <span>Monsters</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('fluent-monster') }}"><i class="nav-icon la la-pastafarianism"></i> <span>Fluent Monsters</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('dummy') }}"><i class="nav-icon la la-poo"></i> <span>Dummies</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon la la-info-circle"></i> <span>Icons</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon la la-shopping-cart"></i> <span>Products</span></a></li>
-    <li class="nav-item"><a class="nav-link" href="{{ backpack_url('tag') }}"><i class="nav-icon la la-tag"></i> <span>Tags</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('icon') }}"><i class="nav-icon la la-info-circle"></i> <span>Icons</span></a></li>
+        <li class="nav-item"><a class="nav-link" href="{{ backpack_url('menu-item') }}"><i class="nav-icon la la-list"></i> <span>Menu</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon la la-shopping-cart"></i> <span>Products</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('tag') }}"><i class="nav-icon la la-tag"></i> <span>Tags</span></a></li>
+
     <?php endif; ?>
 <?php endif; ?>

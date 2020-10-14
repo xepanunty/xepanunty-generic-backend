@@ -10,7 +10,7 @@ Route::get('api/article', 'App\Http\Controllers\Api\ArticleController@index');
 Route::get('api/article-search', 'App\Http\Controllers\Api\ArticleController@search');
 Route::group([
     'prefix'     => config('backpack.base.route_prefix', 'admin'),
-    'middleware' => ['web', "can:professional-user"],
+    'middleware' => ['web', "can:permission-manager"],
     'namespace'  => 'App\Http\Controllers\Admin',
 ], function () { // custom admin routes
     // -----
@@ -28,10 +28,6 @@ Route::group([
     Route::get('charts/users', 'Charts\LatestUsersChartController@response');
     Route::get('charts/new-entries', 'Charts\NewEntriesChartController@response');
 
-    // ---------------------------
-    // Backpack DEMO Custom Routes
-    // Prevent people from doing nasty stuff in the online demo
-    // ---------------------------
     if (app('env') == 'production') {
         // disable delete and bulk delete for all CRUDs
         $cruds = ['article', 'category', 'tag', 'monster', 'icon', 'product', 'page', 'menu-item', 'user', 'role', 'permission'];
@@ -44,4 +40,4 @@ Route::group([
             });
         }
     }
-}); // this should be the absolute last line of this file
+});

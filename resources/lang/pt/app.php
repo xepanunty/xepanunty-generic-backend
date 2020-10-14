@@ -125,5 +125,15 @@ pode personalizar o seu logotipo - a nossa equipa cria um para si',
     "MarketingWebSite" => "Frontend",
     "Pages" => "Páginas",
     'Articles' => 'Blog',
-    'Categories' => 'Blog Categorias'
+    'Categories' => 'Blog Categorias',
+    "frontend_manager" => "Front-end : gestão",
+    "application_parts" => "Administração",
+    "product_app" => "Manager",
+    "manager_social_networks" => "Redes Sociais",
+    "manager_ads_networks" => "Sites de anuncios",
+    "manager_payments" => "Pagamentos",
+    "manager_invoices" => "Facturas",
+    "manager_notifications" => "Notificações",
+    "manager_store_products" => "Gestão Loja",
+    "manager_support" => "Suporte"
 ];
