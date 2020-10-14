@@ -135,5 +135,6 @@ pode personalizar o seu logotipo - a nossa equipa cria um para si',
     "manager_invoices" => "Facturas",
     "manager_notifications" => "Notificações",
     "manager_store_products" => "Gestão Loja",
-    "manager_support" => "Suporte"
+    "manager_support" => "Suporte",
+    "SALES" => 'Sales'
 ];

@@ -107,7 +107,7 @@ class RegisterControllerOverride extends RegisterController
         $user = $this->create($allDataRequest);
 
         if (in_array($allDataRequest['package'],
-            ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "USER-SALES"])) {
+            ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "SALES"])) {
             // is valid
             $userId = $user->id;
             $roleId = Role::where("name", $allDataRequest['package'])->get()->last();

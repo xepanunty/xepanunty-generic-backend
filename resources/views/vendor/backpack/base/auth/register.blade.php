@@ -63,6 +63,7 @@ $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
                                     <option value="STARTER" {{$selectedPackage == "STARTER" ? 'selected' : '' }}>{{trans('app.STARTER') }}</option>
                                     <option value="PROFESSIONAL" {{$selectedPackage == "PROFESSIONAL" ? 'selected' : '' }}>{{trans('app.PROFESSIONAL') }}</option>
                                     <option value="ENTERPRISE" {{$selectedPackage == "ENTERPRISE" ? 'selected' : '' }}>{{trans('app.ENTERPRISE') }}</option>
+                                    <option value="SALES" {{$selectedPackage == "SALES" ? 'selected' : '' }}>{{trans('app.SALES') }}</option>
                                 </select>
                                 @if ($errors->has('package'))
                                     <span class="invalid-feedback">
