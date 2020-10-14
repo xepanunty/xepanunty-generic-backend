@@ -48,10 +48,14 @@ class Nif implements Rule
 
     private function saveData($result)
     {
-        if(isset($result['nif'])) {
+        if (isset($result['nif'])) {
             $newCompany  = new CompanyValidator();
             $newCompany->nif =  (int)$result['nif'];
             $newCompany->json =  json_encode($result);
+            // if validate if is valid
+            if(isset($result['type']) && $result['type'] == "success") {
+                $newCompany->valid = 1;
+            }
             $newCompany->save();
         }
 

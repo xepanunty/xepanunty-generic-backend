@@ -3,13 +3,17 @@ namespace App\Http\Controllers\Auth;
 
 use App\External\Services\HiPayService;
 use App\External\Services\SendInBlueApi;
+use App\Models\ModelHasPermissions;
+use App\Models\ModelHasRoles;
 use App\Rules\Nif;
 use Backpack\CRUD\app\Http\Controllers\Auth\RegisterController;
+use Backpack\PermissionManager\app\Models\Permission;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Http\Request;
 use Backpack\CRUD\app\Library\Auth\RegistersUsers;
 use Illuminate\Routing\Controller;
 use Illuminate\Validation\Rule;
+use Spatie\Permission\Models\Role;
 use Validator;
 
 class RegisterControllerOverride extends RegisterController
@@ -70,7 +74,7 @@ class RegisterControllerOverride extends RegisterController
             'password'                         => bcrypt($data['password']),
             'nif'                             => $data['nif'],
             'phone'                             => $data['phone'],
-          //  'package'                             => $data['package'],
+            'package'                             => $data['package'],
             'email'                             => $data['email'],
             'terms_and_conditions'             => $data['terms_and_conditions'] == 'on' ? 1 : 0,
             'use_phone_in_transactions'             => $data['use_phone_in_transactions']  == 'on' ? 1 : 0,
@@ -95,17 +99,53 @@ class RegisterControllerOverride extends RegisterController
             abort(403, trans('backpack::base.registration_closed'));
         }
 
-        $this->validator($request->all())->validate();
+        $allDataRequest = $request->all();
 
-        //dd($request->all()); die;
-        $user = $this->create($request->all());
 
+        $this->validator($allDataRequest)->validate();
+
+        $user = $this->create($allDataRequest);
+
+        if (in_array($allDataRequest['package'],
+            ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "USER-SALES"])) {
+            // is valid
+            $userId = $user->id;
+            $roleId = Role::where("name", $allDataRequest['package'])->get()->last();
+            $roleId = $roleId->id;
+            if ($roleId) {
+                $this->saveRoles($roleId, $userId);
+            }
+            $packageSelected = strtolower($allDataRequest['package']). "-user";
+            $permissionId = Permission::where("name", $packageSelected)->get()->last();
+            $permissionId = $permissionId->id;
+            if ($permissionId) {
+                $this->savePermissions($permissionId, $userId);
+            }
+
+        }
         event(new Registered($user));
         // send email account created or
 
-
         $this->guard()->login($user);
         return redirect($this->redirectPath());
+    }
+
+    public function saveRoles($roleId, $userId)
+    {
+        $rolesModel =  new ModelHasRoles();
+        $rolesModel->role_id = $roleId;
+        $rolesModel->model_type = "App\User";
+        $rolesModel->model_id = $userId;
+        $rolesModel->save();
+    }
+
+    public function savePermissions($permissionId, $userId)
+    {
+        $permissions =  new ModelHasPermissions();
+        $permissions->permission_id = $permissionId;
+        $permissions->model_type = "App\User";
+        $permissions->model_id = $userId;
+        $permissions->save();
     }
 
 }
