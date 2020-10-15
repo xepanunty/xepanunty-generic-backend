@@ -124,7 +124,7 @@ class RegisterControllerOverride extends RegisterController
 
         }
         event(new Registered($user));
-        // send email account created or
+        // todo : send email account created / template email
 
         $this->guard()->login($user);
         return redirect($this->redirectPath());
