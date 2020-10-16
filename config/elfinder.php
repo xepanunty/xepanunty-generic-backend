@@ -40,11 +40,7 @@ return [
 
     'route' => [
         'prefix'     => config('backpack.base.route_prefix', 'admin').'/elfinder',
-        'middleware' => ['web',  "can:permission-manager",
-            "can:free-user",
-            "can:starter-user",
-            "can:professional-user",
-            "can:entreprise-user"], //Set to null to disable middleware filter
+        'middleware' => ['web'], //Set to null to disable middleware filter
     ],
 
     /*
