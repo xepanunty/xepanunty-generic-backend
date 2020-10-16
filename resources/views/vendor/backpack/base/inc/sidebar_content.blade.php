@@ -67,7 +67,7 @@ $role = backpack_user()->roles[0]->name;
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('account-manager') }}"><i class="nav-icon las la-user-tie"></i> <span>{{ trans('app.account_manager') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('social-networks') }}"><i class="nav-icon lab la-facebook"></i> <span>{{ trans('app.manager_social_networks_2') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product') }}"><i class="nav-icon lab la-product-hunt"></i> <span>{{ trans('app.manager_product_services') }}</span></a></li>
-<li class="nav-item"><a class="nav-link" href="{{ backpack_url('documents') }}"><i class="nav-icon lab la-dochub"></i> <span>{{ trans('app.manager_documents') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('elfinder') }}"><i class="nav-icon lab la-dochub"></i> <span>{{ trans('app.manager_documents') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('shop-preview') }}"><i class="nav-icon las la-store"></i> <span>{{ trans('app.manage_shop_preview') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('notifications') }}"><i class="nav-icon lar la-envelope-open"></i> <span>{{ trans('app.manage_notifications') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('ads-posts') }}"><i class="nav-icon lab la-chromecast"></i> <span>{{ trans('app.manage_ads_posts') }}</span></a></li>
@@ -97,4 +97,9 @@ $role = backpack_user()->roles[0]->name;
 
 <?php  if (in_array($role, ['SALES'])) : ?>
 <li class="nav-title">{{ trans('app.role_'.$role) }} </li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('sales-orders') }}"><i class="nav-icon las la-envelope"></i> <span>{{ trans('app.manage_orders') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('sales-refounds') }}"><i class="nav-icon lab la-slack-hash"></i> <span>{{ trans('app.manage_refounds') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('notifications-sales') }}"><i class="nav-icon lar la-envelope-open"></i> <span>{{ trans('app.manage_notifications') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('manage-tracking-codes-sales') }}"><i class="nav-icon  las la-network-wired"></i> <span>{{ trans('app.manage_tracking') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('support-packages') }}"><i class="nav-icon lab la-rocketchat"></i> <span>{{ trans('app.support') }}</span></a></li>
 <?php endif; ?>
