@@ -66,7 +66,7 @@ class CheckIfAdmin
         $routeName = $user->roles->get(0)->name;
 
         if (!in_array($routeName,
-                ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "SALES"])) {
+                ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "SALES", "PERSONAL"])) {
             return $this->respondToUnauthorizedRequest($request);
         }
 
