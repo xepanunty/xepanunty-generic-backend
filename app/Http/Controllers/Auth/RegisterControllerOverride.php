@@ -39,17 +39,17 @@ class RegisterControllerOverride extends RegisterController
         $user = new $user_model_fqn();
         $users_table = $user->getTable();
         $email_validation = backpack_authentication_column() == 'email' ? 'email|' : '';
-
+        $isPersonal = !empty($data["package"]) && $data["package"] == "PERSONAL";
         $validator =  Validator::make($data, [
-            'nif' => ["required", 'integer', "digits_between:9,9", 'unique:users',  $this->nif],
+            'nif' => !$isPersonal ? ["required", 'integer', "digits_between:9,9", 'unique:users',  $this->nif] : "",
             'name'                             => 'required|max:80',
             backpack_authentication_column()   => 'required|'.$email_validation.'max:255|unique:'.$users_table,
             'password'                         => 'required|min:6|confirmed',
-            //'phone'       => 'phone:PT,LU',
+          //  'phone'       => 'phone:PT,LU',
             'phone'       => 'phone:PT,mobile',
             'use_phone_in_transactions'         => 'required',
             'terms_and_conditions'         => 'required',
-            'package' => 'required'
+            'package' => !$isPersonal ? 'required' : ""
         ]);
 
         return $validator;
@@ -72,7 +72,7 @@ class RegisterControllerOverride extends RegisterController
             'name'                             => $data['name'],
             backpack_authentication_column()   => $data[backpack_authentication_column()],
             'password'                         => bcrypt($data['password']),
-            'nif'                             => $data['nif'],
+            'nif'                             => isset($data['nif']) ? $data['nif'] : null,
             'phone'                             => $data['phone'],
             'package'                             => $data['package'],
             'email'                             => $data['email'],
@@ -104,10 +104,11 @@ class RegisterControllerOverride extends RegisterController
 
         $this->validator($allDataRequest)->validate();
 
+
         $user = $this->create($allDataRequest);
 
         if (in_array($allDataRequest['package'],
-            ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "SALES"])) {
+            ['SUPERADMIN-XEPANUNTY', 'PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "SALES", "PERSONAL"])) {
             // is valid
             $userId = $user->id;
             $roleId = Role::where("name", $allDataRequest['package'])->get()->last();
