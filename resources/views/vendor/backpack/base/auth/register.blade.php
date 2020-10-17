@@ -15,6 +15,7 @@ $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
                     <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('backpack.auth.register') }}">
                         {!! csrf_field() !!}
 
+                        @if ($selectedPackage !== "PERSONAL")
                         <div class="form-group">
                             <label class="control-label" for="name">{{ trans('app.NIF') }}</label>
                             <div>
@@ -27,7 +28,7 @@ $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
                                 @endif
                             </div>
                         </div>
-
+                        @endif
                         <div class="form-group">
                             <label class="control-label" for="name">{{ trans('backpack::base.name') }}</label>
 
@@ -54,6 +55,7 @@ $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
                                 @endif
                             </div>
                         </div>
+                        @if ($selectedPackage !== "PERSONAL")
                         <div class="form-group">
                             <label class="control-label" for="name">{{ trans('app.package') }}</label>
 
@@ -63,7 +65,6 @@ $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
                                     <option value="STARTER" {{$selectedPackage == "STARTER" ? 'selected' : '' }}>{{trans('app.STARTER') }}</option>
                                     <option value="PROFESSIONAL" {{$selectedPackage == "PROFESSIONAL" ? 'selected' : '' }}>{{trans('app.PROFESSIONAL') }}</option>
                                     <option value="ENTERPRISE" {{$selectedPackage == "ENTERPRISE" ? 'selected' : '' }}>{{trans('app.ENTERPRISE') }}</option>
-                                    <option value="SALES" {{$selectedPackage == "SALES" ? 'selected' : '' }}>{{trans('app.SALES') }}</option>
                                 </select>
                                 @if ($errors->has('package'))
                                     <span class="invalid-feedback">
@@ -72,7 +73,7 @@ $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
                                 @endif
                             </div>
                         </div>
-
+                        @endif
                         <div class="form-group">
                             <label class="control-label" for="{{ backpack_authentication_column() }}">{{ config('backpack.base.authentication_column_name') }}</label>
 

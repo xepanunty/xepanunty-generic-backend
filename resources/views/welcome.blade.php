@@ -271,135 +271,198 @@
 
         </div>
     </div>
-
+    <!--test -->
     <div class="site-section" id="pricing-section">
-        <div class="container">
-            <div class="row justify-content-center text-center">
-                <div class="col-7 text-center mb-5">
-                    <span class="subtitle-1">{{ trans('app.pricing') }}</span>
-                    <h2 class="section-title-1 font-weight-bold">{{ trans('app.pricing_desc') }}</h2>
+        <ul class="nav nav-tabs mt-md-1" id="myTab" role="tablist">
+            <li class="nav-item">
+                <a class="nav-link active" id="home-tab-b" data-toggle="tab" href="#pricing-section-1" role="tab" aria-controls="pricing-section-1"
+                   aria-selected="true">BUSSINESS</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile"
+                   aria-selected="false">PERSONAL</a>
+            </li>
+        </ul>
+    </div>
+    <div class="tab-content" id="tabs-ids">
+        <div class="tab-pane fade active in show" id="pricing-section-1" role="tabpanel" aria-labelledby="home-tab-b">
+            <div>
+                <div >
+                    <div class="row justify-content-center text-center">
+                        <div class="col-7 text-center mb-5">
+                            <span class="subtitle-1">{{ trans('app.pricing') }}</span>
+                            <h2 class="section-title-1 font-weight-bold">{{ trans('app.pricing_desc') }}</h2>
+                        </div>
+                    </div>
+                    <p class="text-muted mb-4">* Pode alterar funcionalidades mediante pagamento!</p>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
+                            <div class="border p-5 text-center rounded">
+                                <h3>FREE</h3>
+                                <div class="price mb-3"><sup class="currency"></sup><span class="number">0€</span> <span
+                                            class="per">/MONTH</span></div>
+                                <ul class="list-unstyled ul-check text-left success mb-5">
+                                    <li>5 Productos e servicos</li>
+                                    <li>5 Postagens Facebook</li>
+                                    <li>5 Postagens instagram</li>
+                                    <li>5 Postagem em site de anuncios</li>
+                                    <li class="text-muted">
+                                        <del>Loja Online / Vendas</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de redes Sociais</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de clientes</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Facturacao</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de parceiros</del>
+                                    </li>
+                                </ul>
+                                <p><a href="register/free"
+                                      class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
+                                </p>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
+                            <div class="border p-5 text-center rounded">
+                                <h3>Starter</h3>
+                                <div class="price mb-3"><sup class="currency"></sup><span class="number">11€</span> <span
+                                            class="per">/MONTH</span></div>
+                                <ul class="list-unstyled ul-check text-left success mb-5">
+                                    <li>15 Productos e servicos</li>
+                                    <li>15 Postagens Facebook</li>
+                                    <li>15 Postagens instagram</li>
+                                    <li>15 Postagem em site de anuncio</li>
+                                    <li class="text-muted">
+                                        <del>Loja Online / Vendas</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de redes Sociais</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de clientes</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Facturacao</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de parceiros</del>
+                                    </li>
+                                </ul>
+                                <p><a href="register/starter"
+                                      class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
+                                </p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
+                            <div class="border p-5 text-center rounded">
+                                <h3>Professional</h3>
+                                <div class="price mb-3"><sup class="currency"></sup><span class="number">22€</span> <span
+                                            class="per">/MONTH</span></div>
+                                <ul class="list-unstyled ul-check text-left success mb-5">
+                                    <li>Productos e servicos ilimitados</li>
+                                    <li>Postagens Facebook ilimitadas</li>
+                                    <li>Postagens instagram ilimitadas</li>
+                                    <li>Postagem em site de anuncio ilimitadas</li>
+                                    <li class="text-muted">
+                                        <del>Loja Online / Vendas</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de redes Sociais</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de clientes</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Facturacao</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de parceiros</del>
+                                    </li>
+                                </ul>
+                                <p><a href="register/professional"
+                                      class="btn btn-lg btn-primary rounded-0 btn-block">Subscreva</a></p>
+                            </div>
+                        </div>
+
+                        <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
+                            <div class="border p-5 text-center rounded">
+                                <h3>Enterprise</h3>
+                                <div class="price mb-3"><sup class="currency"></sup><span class="number">43€</span> <span
+                                            class="per">/MONTH</span></div>
+                                <ul class="list-unstyled ul-check text-left success mb-5">
+                                    <li>Productos e servicos ilimitados</li>
+                                    <li>Postagens Facebook ilimitadas</li>
+                                    <li>Postagens instagram ilimitadas</li>
+                                    <li>Postagem em site de anuncio ilimitadas</li>
+                                    <li>Loja Online / Vendas</li>
+                                    <li>Gestao de redes Sociais</li>
+                                    <li>Gestao de clientes</li>
+                                    <li>Facturacao</li>
+                                    <li>Gestao de parceiros</li>
+                                </ul>
+                                <p><a href="register/enterprise"
+                                      class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
-            <p class="text-muted mb-4">* Pode alterar funcionalidades mediante pagamento!</p>
-            <div class="row">
-                <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
-                    <div class="border p-5 text-center rounded">
-                        <h3>FREE</h3>
-                        <div class="price mb-3"><sup class="currency"></sup><span class="number">0€</span> <span
-                                    class="per">/MONTH</span></div>
-                        <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>5 Productos e servicos</li>
-                            <li>5 Postagens Facebook</li>
-                            <li>5 Postagens instagram</li>
-                            <li>5 Postagem em site de anuncios</li>
-                            <li class="text-muted">
-                                <del>Loja Online / Vendas</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de redes Sociais</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de clientes</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Facturacao</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de parceiros</del>
-                            </li>
-                        </ul>
-                        <p><a href="register/free"
-                              class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
-                        </p>
+        </div>
+        <div class="tab-pane fade" id="profile" role="tabpanel" aria-labelledby="profile-tab">
+            <div>
+                <div>
+                    <div class="row justify-content-center text-center">
+                        <div class="col-7 text-center mb-5">
+                            <span class="subtitle-1">{{ trans('app.pricing') }}</span>
+                            <h2 class="section-title-1 font-weight-bold">{{ trans('app.pricing_desc_personal') }}</h2>
+                        </div>
+                    </div>
+                    <p class="text-muted mb-4">* Pode alterar funcionalidades mediante pagamento!</p>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
+                            <div class="border p-5 text-center rounded">
+                                <h3>PERSONAL</h3>
+                                <div class="price mb-3"><sup class="currency"></sup><span class="number">0€</span> <span
+                                            class="per">/MONTH</span></div>
+                                <ul class="list-unstyled ul-check text-left success mb-5">
+                                    <li>5 Productos e servicos</li>
+                                    <li>5 Postagens Facebook</li>
+                                    <li>5 Postagens instagram</li>
+                                    <li>5 Postagem em site de anuncios</li>
+                                    <li class="text-muted">
+                                        <del>Loja Online / Vendas</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de redes Sociais</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de clientes</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Facturacao</del>
+                                    </li>
+                                    <li class="text-muted">
+                                        <del>Gestao de parceiros</del>
+                                    </li>
+                                </ul>
+                                <p><a href="register/personal"
+                                      class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
+                                </p>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
-                    <div class="border p-5 text-center rounded">
-                        <h3>Starter</h3>
-                        <div class="price mb-3"><sup class="currency"></sup><span class="number">11€</span> <span
-                                    class="per">/MONTH</span></div>
-                        <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>15 Productos e servicos</li>
-                            <li>15 Postagens Facebook</li>
-                            <li>15 Postagens instagram</li>
-                            <li>15 Postagem em site de anuncio</li>
-                            <li class="text-muted">
-                                <del>Loja Online / Vendas</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de redes Sociais</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de clientes</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Facturacao</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de parceiros</del>
-                            </li>
-                        </ul>
-                        <p><a href="register/starter"
-                              class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a>
-                        </p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
-                    <div class="border p-5 text-center rounded">
-                        <h3>Professional</h3>
-                        <div class="price mb-3"><sup class="currency"></sup><span class="number">22€</span> <span
-                                    class="per">/MONTH</span></div>
-                        <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>Productos e servicos ilimitados</li>
-                            <li>Postagens Facebook ilimitadas</li>
-                            <li>Postagens instagram ilimitadas</li>
-                            <li>Postagem em site de anuncio ilimitadas</li>
-                            <li class="text-muted">
-                                <del>Loja Online / Vendas</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de redes Sociais</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de clientes</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Facturacao</del>
-                            </li>
-                            <li class="text-muted">
-                                <del>Gestao de parceiros</del>
-                            </li>
-                        </ul>
-                        <p><a href="register/professional"
-                              class="btn btn-lg btn-primary rounded-0 btn-block">Subscreva</a></p>
-                    </div>
-                </div>
-
-                <div class="col-lg-3 col-md-6 mb-3 mb-lg-0 pricing">
-                    <div class="border p-5 text-center rounded">
-                        <h3>Enterprise</h3>
-                        <div class="price mb-3"><sup class="currency"></sup><span class="number">43€</span> <span
-                                    class="per">/MONTH</span></div>
-                        <ul class="list-unstyled ul-check text-left success mb-5">
-                            <li>Productos e servicos ilimitados</li>
-                            <li>Postagens Facebook ilimitadas</li>
-                            <li>Postagens instagram ilimitadas</li>
-                            <li>Postagem em site de anuncio ilimitadas</li>
-                            <li>Loja Online / Vendas</li>
-                            <li>Gestao de redes Sociais</li>
-                            <li>Gestao de clientes</li>
-                            <li>Facturacao</li>
-                            <li>Gestao de parceiros</li>
-                        </ul>
-                        <p><a href="register/enterprise"
-                              class="btn btn-lg btn-secondary rounded-0 btn-block">Subscreva</a></p>
-                    </div>
-                </div>
-
             </div>
         </div>
     </div>
+
 
     <div class="site-section bg-light" id="blog-section">
         <div class="container">
