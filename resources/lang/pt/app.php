@@ -171,7 +171,7 @@ pode personalizar o seu logotipo - a nossa equipa cria um para si',
     "manage_refounds" => "Devoluçoes",
     "pricing_desc_personal" => "Uma solucao pessoal a pensar em si.",
     "PERSONAL" => "Pessoal",
-    "" => "",
+    "role_PERSONAL" => "Pessoal",
     "" => "",
     "" => "",
 ];

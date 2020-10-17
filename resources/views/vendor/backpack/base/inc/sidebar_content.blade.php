@@ -110,3 +110,12 @@ $role = backpack_user()->roles[0]->name;
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('manage-tracking-codes-sales') }}"><i class="nav-icon  las la-network-wired"></i> <span>{{ trans('app.manage_tracking') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('support-packages-sales') }}"><i class="nav-icon lab la-rocketchat"></i> <span>{{ trans('app.support') }}</span></a></li>
 <?php endif; ?>
+<?php  if (in_array($role, ['PERSONAL'])) : ?>
+<li class="nav-title">{{ trans('app.role_'.$role) }} </li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('account-manager-'.strtolower($role)) }}"><i class="nav-icon las la-user-tie"></i> <span>{{ trans('app.account_manager') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('social-networks-'.strtolower($role)) }}"><i class="nav-icon lab la-facebook"></i> <span>{{ trans('app.manager_social_networks_2') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('product-'.strtolower($role)) }}"><i class="nav-icon lab la-product-hunt"></i> <span>{{ trans('app.manager_product_services') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('notifications-'.strtolower($role)) }}"><i class="nav-icon lar la-envelope-open"></i> <span>{{ trans('app.manage_notifications') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('ads-posts-'.strtolower($role)) }}"><i class="nav-icon lab la-chromecast"></i> <span>{{ trans('app.manage_ads_posts') }}</span></a></li>
+
+<?php endif; ?>

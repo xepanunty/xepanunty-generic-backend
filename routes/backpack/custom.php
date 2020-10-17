@@ -153,3 +153,17 @@ Route::group([
     Route::crud('notifications-enterprise', 'NotificationCrudController');
     Route::crud('product-enterprise', 'ProductCrudController');
 });
+
+// PERSONAL USER
+
+Route::group([
+    'prefix'     => config('backpack.base.route_prefix', 'admin'),
+    'middleware' => ['web', "can:personal-user"],
+    'namespace'  => 'App\Http\Controllers\Admin',
+], function () {
+    Route::crud('account-manager-personal', 'AccountManagerCrudController');
+    Route::crud('social-networks-personal', 'SocialNetworkCrudController');
+    Route::crud('ads-posts-personal', 'AdsPostCrudController');
+    Route::crud('notifications-personal', 'NotificationCrudController');
+    Route::crud('product-personal', 'ProductCrudController');
+});
