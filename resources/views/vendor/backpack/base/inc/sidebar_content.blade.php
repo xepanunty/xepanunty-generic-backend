@@ -93,12 +93,11 @@ $role = backpack_user()->roles[0]->name;
 <?php endif; ?>
 
 
-<?php  if (in_array($role, ['PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE"])) : ?>
+<?php
+if (in_array($role, ['PROFESSIONAL', 'STARTER', 'FREE', "ENTERPRISE", "PERSONAL"])) : ?>
     <li class="nav-item"><a class="nav-link" href="{{ backpack_url('support-packages-'.strtolower($role)) }}"><i class="nav-icon lab la-rocketchat"></i> <span>{{ trans('app.support') }}</span></a></li>
 <?php endif; ?>
 <?php endif; ?>
-
-
 
 
 <?php  if (in_array($role, ['SALES'])) : ?>
@@ -117,5 +116,6 @@ $role = backpack_user()->roles[0]->name;
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('product-'.strtolower($role)) }}"><i class="nav-icon lab la-product-hunt"></i> <span>{{ trans('app.manager_product_services') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('notifications-'.strtolower($role)) }}"><i class="nav-icon lar la-envelope-open"></i> <span>{{ trans('app.manage_notifications') }}</span></a></li>
 <li class="nav-item"><a class="nav-link" href="{{ backpack_url('ads-posts-'.strtolower($role)) }}"><i class="nav-icon lab la-chromecast"></i> <span>{{ trans('app.manage_ads_posts') }}</span></a></li>
+<li class="nav-item"><a class="nav-link" href="{{ backpack_url('support-packages-'.strtolower($role)) }}"><i class="nav-icon lab la-rocketchat"></i> <span>{{ trans('app.support') }}</span></a></li>
 
 <?php endif; ?>

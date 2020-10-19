@@ -166,4 +166,5 @@ Route::group([
     Route::crud('ads-posts-personal', 'AdsPostCrudController');
     Route::crud('notifications-personal', 'NotificationCrudController');
     Route::crud('product-personal', 'ProductCrudController');
+    Route::crud('support-packages-personal', 'SupportPackageCrudController');
 });
