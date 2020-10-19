@@ -5,11 +5,19 @@ $request = request()->fullUrl();
 $explodeUri = explode('/', $request);
 $selectedPackage = isset(array_reverse($explodeUri)[0]) ? strtoupper(array_reverse($explodeUri)[0]) : "FREE";
 $selectedPackage = $selectedPackage != "REGISTER" ? $selectedPackage : "FREE";
+// change styles and logo, based on the logo
+$country = env('APP_LOCAL') === "PT" ? "pt" : "lu";
+$isPortugal = env('APP_LOCAL') === "PT";
 ?>
 @section('content')
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
             <h3 class="text-center mb-4">{{ trans('backpack::base.register') }}</h3>
+            <div class="text-center mb-4">
+                <img class="mb-0 site-logo" src="{{
+   $isPortugal ? asset('assets/logo/income_pt.png') : asset('assets/logo/income_lu.png')}}"
+                     alt="{{ trans('app.logo') }}"/>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <form class="col-md-12 p-t-10" role="form" method="POST"

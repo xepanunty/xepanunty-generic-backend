@@ -1,11 +1,20 @@
 {{-- BACKPACK DEMO FILE --}}
 {{-- It makes sure the login inputs are pre-populated with the default admin user. --}}
 @extends(backpack_view('layouts.plain'))
-
+<?php
+// change styles and logo, based on the logo
+$country = env('APP_LOCAL') === "PT" ? "pt" : "lu";
+$isPortugal = env('APP_LOCAL') === "PT";
+?>
 @section('content')
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
             <h3 class="text-center mb-4">{{ trans('backpack::base.login') }}</h3>
+            <div class="text-center mb-4">
+                <img class="mb-0 site-logo" src="{{
+   $isPortugal ? asset('assets/logo/income_pt.png') : asset('assets/logo/income_lu.png')}}"
+                     alt="{{ trans('app.logo') }}"/>
+            </div>
             <div class="card">
                 <div class="card-body">
                     <form class="col-md-12 p-t-10" role="form" method="POST" action="{{ route('backpack.auth.login') }}">
