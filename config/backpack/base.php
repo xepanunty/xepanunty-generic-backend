@@ -1,5 +1,9 @@
 <?php
 
+// change styles and logo, based on the logo
+$country = env('APP_LOCAL') === "PT" ? "pt" : "lu";
+$isPortugal = env('APP_LOCAL') === "PT";
+
 return [
 
     /*
@@ -24,7 +28,7 @@ return [
     // ----
 
     // Project name. Shown in the window title.
-    'project_name' => 'INCOME Admin Panel',
+    'project_name' => 'INCOME Portugal , Income Luxembourg Admin Panel',
 
     // Content of the HTML meta robots tag to prevent indexing and link following
     'meta_robots_content' => 'noindex, nofollow',
@@ -35,7 +39,7 @@ return [
 
     // CSS files that are loaded in all pages, using Laravel's asset() helper
     'styles' => [
-        'packages/backpack/base/css/bundle.css',
+        $isPortugal ? 'packages/backpack/base/css/bundle.css' : 'packages/backpack/base/css/bundle_lu.css',
 
         // Here's what's inside the bundle:
         // 'packages/@digitallyhappy/backstrap/css/style.min.css',
@@ -77,7 +81,7 @@ return [
     'breadcrumbs' => true,
 
     // Horizontal navbar classes. Helps make the admin panel look similar to your project's design.
-    'header_class' => 'app-header  bg-dark border-0 navbar',
+    'header_class' => $isPortugal ? 'app-header  bg-green border-0 navbar' :  'app-header  bg-blue border-0 navbar',
     // For background colors use: bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
     // For links to be visible on different background colors use: "navbar-dark", "navbar-light", "navbar-color"
 
@@ -90,7 +94,7 @@ return [
     // Try sidebar-hidden, sidebar-fixed, sidebar-compact, sidebar-lg-show
 
     // Sidebar element classes.
-    'sidebar_class' => 'sidebar  sidebar-dark bg-dark',
+    'sidebar_class' => $isPortugal ? 'sidebar sidebar-dark bg-teal' : 'sidebar sidebar-dark bg-info',
     // Remove "sidebar-transparent" for standard sidebar look
     // Try "sidebar-light" or "sidebar-dark" for dark/light links
     // You can also add a background class like bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan
@@ -100,7 +104,7 @@ return [
     // ------
 
     // Footer element classes.
-    'footer_class' => 'app-footer',
+    'footer_class' =>  $isPortugal ? 'app-footer bg-green' : 'app-footer bg-blue',
     // hide it with d-none
     // change background color with bg-dark, bg-primary, bg-secondary, bg-danger, bg-warning, bg-success, bg-info, bg-blue, bg-light-blue, bg-indigo, bg-purple, bg-pink, bg-red, bg-orange, bg-yellow, bg-green, bg-teal, bg-cyan, bg-white
 
