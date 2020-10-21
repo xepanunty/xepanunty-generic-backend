@@ -68,7 +68,7 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                 @endif
                             </div>
                         </div>
-                        @if ($selectedPackage !== "PERSONAL")
+                        @if ($selectedPackage !== "PERSONAL" && $selectedPackage !== "SALES")
                             <div class="form-group">
                                 <label class="control-label" for="name">{{ trans('app.package') }}</label>
 
@@ -89,7 +89,7 @@ $isPortugal = env('APP_LOCAL') === "PT";
                                 </div>
                             </div>
                         @else
-                            <input  name="package" id="package" value="PERSONAL" type="hidden"/>
+                            <input  name="package" id="package" value="{{$selectedPackage}}" type="hidden"/>
                         @endif
                         <div class="form-group">
                             <label class="control-label"
