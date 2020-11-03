@@ -17,7 +17,7 @@ if(env('APP_ENV') !== 'local' && $isPortugal) {
   </button>
   <a class="navbar-brand" href="{{ $link }}" title="{{ config('backpack.base.project_name') }}">
     <img width="100%" src="{{
-     $isPortugal ? asset('assets/logo/income_pt.png') : asset('assets/logo/income_lu.png')}}"
+     $isPortugal ? asset('assets/logo/income_pt.png') : asset('assets/logo/income_lu_white.png')}}"
          alt="{{ trans('app.logo') }}"/>
 
   </a>
