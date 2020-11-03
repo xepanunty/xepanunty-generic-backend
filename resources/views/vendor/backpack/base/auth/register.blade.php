@@ -12,7 +12,6 @@ $isPortugal = env('APP_LOCAL') === "PT";
 @section('content')
     <div class="row justify-content-center">
         <div class="col-12 col-md-8 col-lg-4">
-            <h3 class="text-center mb-4">{{ trans('backpack::base.register') }}</h3>
             <div class="text-center mb-4">
                 <img class="mb-0 site-logo" src="{{
    $isPortugal ? asset('assets/logo/income_pt.png') : asset('assets/logo/income_lu.png')}}"
